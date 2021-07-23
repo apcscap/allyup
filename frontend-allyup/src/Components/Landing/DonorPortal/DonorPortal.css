@@ -1,0 +1,38 @@
+.portal {
+    background-color: antiquewhite;
+    width: 47%;
+    border-radius: 10px;
+    font-size: 3em;  
+}
+.portal-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;   
+}
+
+#heading {
+    margin-left: 1rem;
+}
+
+.arrw-icon {
+    font-size: 1em;
+    background-color: antiquewhite;
+    color: green;
+    border: none;    
+    margin: 0.6rem 1.2rem;    
+}
+
+.positive {
+    font-size: 0.4em;
+    margin: 0.5rem 1.2rem;   
+}
+
+@media screen and (max-width: 630px){
+    .portal {
+        width: 100%;        
+        margin-bottom: 5rem;
+    }
+    .arrw-icon {
+        margin: auto;
+    }
+}
