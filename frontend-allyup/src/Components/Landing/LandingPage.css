@@ -26,7 +26,7 @@
 
 #hero-container {    
     width: 90vw;
-    height: 55vh;
+    height: 65vh;
     margin: 2.5rem auto;
     display: flex;
     justify-content: space-between;
@@ -38,3 +38,4 @@
         height: 50%;
     }    
 }
+

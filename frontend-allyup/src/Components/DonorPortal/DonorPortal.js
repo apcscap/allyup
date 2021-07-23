@@ -13,7 +13,9 @@ const DonorPortal = () => {
             <div className="positive">
                 Continue as Continue as a Donor Create scholarships, fellowships, and grants for the people and causes you care most about.
             </div>
-            <img src={donation} alt="Image of Donation" id="donation-img"></img>
+            <div className="center">
+                <img src={donation} alt="Image of Donation" id="donation-img"></img>
+            </div>
         </div>
 
     )
