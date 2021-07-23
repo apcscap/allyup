@@ -1,0 +1,40 @@
+.title {
+    display: flex;
+    justify-content: center;        
+    margin-right: 3rem;
+}
+
+#logo {
+    width: 8rem;        
+}
+
+#title-text {
+    align-self: center;    
+    font-size: 3.5em;
+}
+
+#lorem {
+    font-size: 1.25em;
+    margin: 0.5rem 6rem;
+}
+
+@media screen and (max-width: 800px) {
+    #lorem {
+      margin: 0.2rem 2.6rem;
+    }
+  }
+
+#hero-container {    
+    width: 90vw;
+    height: 55vh;
+    margin: 2.5rem auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 630px){
+    #hero-container {
+        flex-direction: column;        
+        height: 50%;
+    }    
+}
