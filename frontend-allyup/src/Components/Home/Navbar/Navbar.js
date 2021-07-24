@@ -3,17 +3,18 @@ import './Navbar.css'
 import logo from '../../../imgs/logo.png'
 import { BsSearch } from 'react-icons/bs'
 import { AiFillHome } from 'react-icons/ai'
+import { Link } from 'react-router-dom'
 
 export default function Navbar() {
     return (
         <div className="navbar">
-            <div className="navbar-logo">
+            <Link to="/" className="navbar-logo">
                 <img src={logo} id="navbar-logo" />
-            </div>
+            </Link>
 
-            <div className="navbar-title">
+            <Link to="/" className="navbar-title">
                 AllyUp
-            </div>
+            </Link>
 
             <div className="navbar-search">
                 <input className="navbar-searchInput" type="text" placeholder="Search"/>
@@ -21,21 +22,21 @@ export default function Navbar() {
             </div>
 
             <div className="navbar-nav">
-                <div className="navbar-etc">
+                <Link to="/" className="navbar-etc">
                     <span className="navbar-etcline1">Your</span>
                     <span className="navbar-etcline2">Profile</span>
-                </div>                
-                <div className="navbar-etc">
+                </Link>                
+                <Link to="/" className="navbar-etc">
                     <span className="navbar-etcline1">Donations</span>
                     <span className="navbar-etcline2">& Records</span>
-                </div>
-                <div className="navbar-etc">
+                </Link>
+                <Link to="/" className="navbar-etc">
                     <span className="navbar-etcline1">Our</span>
                     <span className="navbar-etcline2">Mission</span>
-                </div>
-                <div className="navbar-homeIcon">
+                </Link>
+                <Link to="/home" className="navbar-homeIcon">
                     <AiFillHome id="navbar-homeIcon"/>
-                </div>
+                </Link>
             </div>
         </div>
     )
