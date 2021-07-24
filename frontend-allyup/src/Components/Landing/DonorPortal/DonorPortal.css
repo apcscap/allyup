@@ -2,7 +2,7 @@
     background-color: antiquewhite;
     width: 47%;
     border-radius: 10px;
-    font-size: 3em;  
+    font-size: 3em;      
 }
 .portal-container {
     display: flex;
@@ -37,8 +37,7 @@
     }
 }
 
-.center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#donation-img { 
+    width: 50%;
+    margin: 0 25%;
 }
