@@ -119,7 +119,7 @@ app.use("/api/logout", (req, res) => {
 app.use("/api/post/create", (req, res) => {
     const user = firebase.auth().currentUser;
     const postID = uuidv4();
-    const { title, description, quantity} = req.query
+    const { title, description, quantity, isRequest } = req.query
 
     const postObj = {
         postID: postID,
@@ -128,6 +128,7 @@ app.use("/api/post/create", (req, res) => {
         description: description,
         date: Date.now(),
         quantity: quantity,
+        isRequest: isRequest,
     }
     
     firUtils.createPost(user.uid, postID, postObj);
@@ -149,7 +150,13 @@ app.use("/api/post/:id", (req, res) => {
 */
 app.use("/api/userposts/:id", (req, res) => {
     const uid = req.params.id;
-    res.send(uid);
+    firUtils.getPostByUser(uid, (err, postSnapshot) => {
+        if(err) {
+            res.status(401).send(err.message)
+        }
+        const postArray = Object.keys(postSnapshot).map(function(key) { return postSnapshot[key] })
+        res.send(postArray)
+    })
 })
 
 app.listen(4000, () => console.log("The server is running at PORT 4000"));
