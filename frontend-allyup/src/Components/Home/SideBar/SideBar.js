@@ -49,15 +49,15 @@ export default function SideBar() {
                 </div>
                 <div className="sidebar-category">
                     <FaDog className="sidebar-titleicon"/>
-                    Animal Shelter
+                    Animal Shelters
                 </div>
                 <div className="sidebar-category">
                     <CgGirl className="sidebar-titleicon"/>
-                    Women's Shelter
+                    Women Shelters
                 </div>
                 <div className="sidebar-category">
                     <GiPaperBoat className="sidebar-titleicon"/>
-                    Refugee Shelter
+                    Refugee Shelters
                 </div>
             </div>
         </div>
