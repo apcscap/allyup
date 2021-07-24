@@ -50,7 +50,7 @@ app.use("/api/user", (req, res) => {
     const user = firebase.auth().currentUser
     firUtils.getUserByUID(user.uid, (err, userSnapshot) => {
         if(err) {
-            res.status(401).end(err.messages)
+            res.status(401).end(err.message)
         }
         res.send(userSnapshot)
     })
@@ -66,9 +66,13 @@ app.use("/api/signin", (req, res) => {
     .then((userCredential) => {
         // Signed in
         var user = userCredential.user;
-        // ...
-
-        res.send(user.email)
+        
+        firUtils.getUserByUID(user.uid, (err, userSnapshot) => {
+            if (err) {
+                res.status(401).end(err.message)
+            }
+            res.send(userSnapshot)
+        })
     })
     .catch((error) => {
         var errorCode = error.code;
