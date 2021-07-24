@@ -16,7 +16,7 @@ export default function Navbar() {
             </div>
 
             <div className="navbar-search">
-                <input className="navbar-searchInput" type="text"/>
+                <input className="navbar-searchInput" type="text" placeholder="Search"/>
                 <div className="navbar-searchIcon"><BsSearch id="navbar-searchIcon"/></div>
             </div>
 
