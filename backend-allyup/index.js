@@ -11,7 +11,7 @@ app.use(cors());
 // app.use("/");
 
 /* Signs up a user
-    Params: None
+    Params: HTTP Request
     Returns: User Object (JSON) 
 */
 app.use("/api/signup", (req, res) => {
@@ -52,6 +52,20 @@ app.use("/api/user", (req, res) => {
     const user = firebase.auth().currentUser
     firUtils.getUserByUID(user.uid, (err, userSnapshot) => {
         if(err) {
+            res.status(401).end(err.message)
+        }
+        res.send(userSnapshot)
+    })
+})
+
+/* Get the profile of a user givin ID
+    Params: ID in the url path
+    Returns: User Object (JSON) 
+*/
+app.use("/api/profile/:id", (req, res) => {
+    const uid = req.params.id
+    firUtils.getUserByUID(uid, (err, userSnapshot) => {
+        if (err) {
             res.status(401).end(err.message)
         }
         res.send(userSnapshot)
