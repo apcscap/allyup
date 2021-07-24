@@ -176,11 +176,15 @@ app.use("/api/userposts/:id", (req, res) => {
     })
 })
 
-app.use("/api/posts/category/:category"), (req, res) => {
+app.use("/api/posts/category/:category", (req, res) => {
     const category = req.params.category;
     firUtils.getAllPostsByCat(category, (err, postSnapshot) => {
-
+        if(err) {
+            res.status(401).send(err.message)
+        }
+        const postArray = Object.keys(postSnapshot).map(function(key) { return postSnapshot[key] })
+        res.send(postArray)
     })
-}
+})
 
 app.listen(4000, () => console.log("The server is running at PORT 4000"));
