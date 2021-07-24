@@ -53,9 +53,12 @@ app.use("/api/signup", (req, res) => {
 */
 app.use("/api/user", (req, res) => {
     const user = firebase.auth().currentUser
+    if(!user) {
+        return res.status(501).send("User not logged in")
+    }
     firUtils.getUserByUID(user.uid, (err, userSnapshot) => {
         if(err) {
-            res.status(401).end(err.message)
+            res.status(501).end(err.message)
         }
         res.send(userSnapshot)
     })
