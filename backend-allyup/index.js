@@ -112,7 +112,7 @@ app.use("/api/logout", (req, res) => {
     });
 })
 
-/* Create a post for a shelter
+/* Create a post for a shelter or user
     Params: HTTP Request
     Returns: Post Obj (JSON)
 */
