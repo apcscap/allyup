@@ -1,0 +1,66 @@
+.login-container {
+    width: 40vw;
+    height: 80vh;
+    background-color: #F8F5F5;
+    margin: 7.5vh auto;
+}
+
+#login-logo {
+    width: 50%;
+    margin: 1.5rem 25%;
+}
+
+.input-container {    
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#user, #lock{
+    font-size: 2em;
+}
+
+.user-input {
+    width: 70%;
+    height: 2rem;
+    font-size: 1.5em;   
+    margin-bottom: 2.4rem; 
+}
+
+.submit-button {
+    width: 60%;
+    height: 3.5rem;
+    font-size: 1.5em;
+    margin: 0 20%;
+    border: none;
+    background-color: #BA55D3;
+    color: white;
+    margin-bottom: 2em;
+    
+}
+
+.submit-button:hover {
+    background-color: #AA98A9;
+}
+
+#footer {
+    font-size: 1rem;          
+    display: flex;
+    justify-content: center;  
+}
+
+.highlight {
+    color: #BA55D3;
+}
+
+.highlight:hover {
+    color: #915F6D;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 605px) {
+    #footer {
+        flex-direction: column;
+        align-items: center;  
+    }
+}
