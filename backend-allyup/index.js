@@ -23,4 +23,25 @@ app.use("/api/signup", (req, res) => {
     });
 })
 
+app.use("/api/signin", (req, res) => {
+    const { email, password } = req.body
+    firebase.auth().signInWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+        // Signed in
+        var user = userCredential.user;
+        // ...
+    })
+    .catch((error) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+    });
+})
+
+app.use("/api/logout", (req, res) => {
+    firebase.auth().signOut().then(() => {
+    // Sign-out successful.
+    }).catch((error) => {
+    // An error happened.
+    });
+})
 app.listen(4000, () => console.log("The server is running at PORT 4000"));
