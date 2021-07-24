@@ -112,15 +112,17 @@ app.use("/api/post/create", (req, res) => {
     Returns: [Post] (JSON) 
 */
 app.use("/api/post/:id", (req, res) => {
-
+    const postID = req.params.id;
+    res.send(postID);
 })
 
 /* Retrieve all posts made by a user
     Params: None
     Returns: [Post] (JSON) 
 */
-app.use("/api/post/user/:id", (req, res) => {
-
+app.use("/api/userposts/:id", (req, res) => {
+    const uid = req.params.id;
+    res.send(uid);
 })
 
 app.listen(4000, () => console.log("The server is running at PORT 4000"));
