@@ -1,5 +1,5 @@
 .landing-container {
-    background-image: linear-gradient(#bdd4e7, #8693ab);
+    background-image: linear-gradient(#bdd4e7, #8693ab); 
     height: 100vh;
 }
 
@@ -16,6 +16,7 @@
 #title-text {
     align-self: center;    
     font-size: 3.5em;
+    color: #5E2D79;
 }
 
 #lorem {
@@ -42,5 +43,8 @@
         flex-direction: column;        
         height: 50%;
     }    
+    .landing-container {
+        height: 175vh;
+    }
 }
 

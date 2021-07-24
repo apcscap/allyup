@@ -1,11 +1,9 @@
 import React from 'react'
 
-const Registeration = () => {
+export default function Hero() {
     return (
         <div>
-            
+            hi
         </div>
     )
 }
-
-export default Registeration
