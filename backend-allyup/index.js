@@ -41,6 +41,7 @@ app.use("/api/signup", (req, res) => {
     .catch((error) => {
         var errorCode = error.code;
         var errorMessage = error.message;
+        console.log(error.message)
         
         res.send(errorMessage)
     });
