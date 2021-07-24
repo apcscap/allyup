@@ -1,4 +1,5 @@
 /* uses same css from donoportal if the classname is the same lol xd */
 #shelter-img { 
-    width: 90%;
+    width: 80%;
+    margin: 1.3rem auto;
 }

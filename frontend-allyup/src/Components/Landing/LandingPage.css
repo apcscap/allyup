@@ -1,5 +1,5 @@
 .landing-container {
-    background-image: linear-gradient(#bdd4e7, #8693ab);
+    background-image: linear-gradient(#bdd4e7, #8693ab); 
     height: 100vh;
 }
 
@@ -43,5 +43,8 @@
         flex-direction: column;        
         height: 50%;
     }    
+    .landing-container {
+        height: 175vh;
+    }
 }
 
