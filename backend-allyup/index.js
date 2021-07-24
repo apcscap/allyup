@@ -8,6 +8,10 @@ app.use(cors());
 
 // app.use("/");
 
+/* Signs up a user
+    Params: None
+    Returns: User Object (JSON) 
+*/
 app.use("/api/signup", (req, res) => {
 
     const { email, password } = req.query
@@ -17,7 +21,7 @@ app.use("/api/signup", (req, res) => {
         // Signed in 
         var user = userCredential.user;
         console.log(user)
-        res.send(user)
+        res.send(user).uid
     })
     .catch((error) => {
         var errorCode = error.code;
@@ -27,6 +31,22 @@ app.use("/api/signup", (req, res) => {
     });
 })
 
+/* Get the current user that's signed in
+    Params: None
+    Returns: User Object (JSON) 
+*/
+app.use("/api/user", (req, res) => {
+    const user = firebase.auth().currentUser
+    if (!user) {
+        return res.status(401).end('There is no user signed in')
+    }
+    res.send(user.uid)
+})
+
+/* Sign in User
+    Params: Http request {email: String, password: String }
+    Returns: User Object (JSONN) 
+*/
 app.use("/api/signin", (req, res) => {
     const { email, password } = req.query
     firebase.auth().signInWithEmailAndPassword(email, password)
@@ -45,6 +65,10 @@ app.use("/api/signin", (req, res) => {
     });
 })
 
+/* Logs user out
+    Params: None
+    Returns: Status message
+*/
 app.use("/api/logout", (req, res) => {
     firebase.auth().signOut().then(() => {
     // Sign-out successful.
