@@ -1,6 +1,6 @@
 .login-container {
     width: 40vw;
-    height: 90vh;
+    height: 97vh;
     background-color: #F8F5F5;
     margin: 7.5vh auto;
 }
@@ -23,8 +23,8 @@
 .user-input {
     width: 70%;
     height: 2rem;
-    font-size: 1.5em;   
-    margin-bottom: 1.5rem; 
+    font-size: 1.2em;   
+    margin-bottom: 1rem; 
 }
 
 .submit-button {

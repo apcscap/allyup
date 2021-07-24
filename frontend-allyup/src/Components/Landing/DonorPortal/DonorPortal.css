@@ -1,5 +1,5 @@
 .portal {
-    background-color: antiquewhite;
+    background-color: white;
     width: 47%;
     border-radius: 10px;
     font-size: 3em;      
@@ -17,7 +17,7 @@
 
 .arrw-icon {
     font-size: 1em;
-    background-color: antiquewhite;
+    background-color: white;
     color: green;
     border: none;    
     margin: 0.6rem 1.2rem;    
