@@ -5,7 +5,8 @@ import { BiUser } from 'react-icons/bi'
 import { RiLockPasswordFill } from 'react-icons/ri'
 import { Link } from "react-router-dom";
 
-export default function LoginPage() {
+export default function LoginPage({isShelter, setIsShelter}) {
+
     return (
         <div className="login-container">
             <img src={logo} alt="AllyUp logo" id="login-logo"></img>
@@ -13,7 +14,7 @@ export default function LoginPage() {
             <form>
                 <div className="input-container">
                     <BiUser id="user"></BiUser>
-                    <input type="text" placeholder='Username' className="user-input"></input>
+                    <input type="text" placeholder='Email' className="user-input"></input>
                 </div>
 
                 <div className="input-container">
