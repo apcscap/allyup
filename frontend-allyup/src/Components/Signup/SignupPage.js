@@ -18,8 +18,10 @@ export default function SignupPage({isShelter, setIsShelter}) {
     const [address, setAddress] = useState('')
     const [imgUrl, setImgUrl] = useState('')
 
+    const [link, setLink] = useState('/signup')
+
     const user = {
-        userName: userName,
+        name: userName,
         email: email,
         password: password, 
         shelterType: shelterType,
@@ -33,7 +35,9 @@ export default function SignupPage({isShelter, setIsShelter}) {
         axios.post('http://localhost:4000/api/signup', user)
           .then((response) => {
             console.log(response);
-          }, (error) => {
+            setLink('/home')
+          },           
+          (error) => {
             console.log(error);
           });
     }
@@ -119,12 +123,14 @@ export default function SignupPage({isShelter, setIsShelter}) {
                 </div>
 
                 
-                <input 
-                    type="submit" 
-                    className="submit-button" 
-                    value="Register">
-                </input>
-
+                <Link to={link}>
+                    <input 
+                        type="submit"                     
+                        className="submit-button"                 
+                        value="Register">
+                    </input>
+                </Link>
+                
                 <span id="footer">
                     Already have an account?&nbsp;
                     <Link to='/login'><p className="highlight">Sign in</p></Link>
