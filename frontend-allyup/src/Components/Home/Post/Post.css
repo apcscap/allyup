@@ -31,7 +31,7 @@
 .post-sheltername {
     margin: 10px;
     max-width: max-content;
-    font-size: 25px;
+    font-size: 30px;
     font-weight: 100;
     background-color: lightgray;
 }
@@ -52,6 +52,14 @@
 .post-button {
     margin: 0 10px 5px 10px;
     max-width: max-content;
+    padding: 5px;
     font-size: 14px;
-    background-color: #cd83ec;
+    color: white;
+    border: none;
+    background-color: #CF9FFF;
+}
+
+.post-button:hover {
+    cursor: pointer;
+    background-color: #CBC3E3;
 }

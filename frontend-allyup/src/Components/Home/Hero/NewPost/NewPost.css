@@ -25,8 +25,8 @@
 #display-description {
     width: 80%;
     border: none;
-    padding: 5px 5px 13vh 5px;
-    margin: 0 0.5vw 0 5.5vw;
+    padding: 5px 5px 100px 5px;
+    margin: 0 0.5px 0 5.5px;
     border-radius: 10px;    
 }
 
