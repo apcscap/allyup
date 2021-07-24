@@ -30,6 +30,7 @@ app.use("/api/signup", (req, res) => {
             address: address,
             imageURL: imageURL,
         }
+        
         firUtils.storeUserData(user.uid, userObj)
 
         res.send(userObj)
@@ -95,4 +96,31 @@ app.use("/api/logout", (req, res) => {
         res.status(401).send('We made and oopsy')
     });
 })
+
+/* Create a post for a shelter
+    Params: HTTP Request
+    Returns: Post Obj (JSON)
+*/
+app.use("/api/post/create", (req, res) => {
+    const user = firebase.auth().currentUser
+    
+    res.send('hello')
+})
+
+/* Retrieve one post by the id
+    Params: None
+    Returns: [Post] (JSON) 
+*/
+app.use("/api/post/:id", (req, res) => {
+
+})
+
+/* Retrieve all posts made by a user
+    Params: None
+    Returns: [Post] (JSON) 
+*/
+app.use("/api/post/user/:id", (req, res) => {
+
+})
+
 app.listen(4000, () => console.log("The server is running at PORT 4000"));
