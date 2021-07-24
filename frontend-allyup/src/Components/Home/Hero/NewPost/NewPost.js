@@ -27,7 +27,6 @@ const NewPost = ({userData}) => {
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault()
         axios.post('http://localhost:4000/api/post/create', posting)
         .then((response) => {  
             console.log(response)
