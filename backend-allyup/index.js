@@ -1,6 +1,5 @@
 const express = require("express");
 const cors = require("cors");
-const authMiddleware = require("./auth-middleware");
 const firebase = require("./firebase/index");
 const firUtils = require("./util/firUtils.js");
 const { v4:uuidv4 } = require("uuid");
@@ -124,6 +123,9 @@ app.use("/api/logout", (req, res) => {
 */
 app.use("/api/post/create", (req, res) => {
     const user = firebase.auth().currentUser;
+    if(!user) {
+        return res.status(501).send("User not logged in")
+    }
     const postID = uuidv4();
     const { title, description, quantity, isRequest, productLink, category} = req.body
 
@@ -176,6 +178,10 @@ app.use("/api/userposts/:id", (req, res) => {
     })
 })
 
+/* Retrieve all posts under a category
+    Params: URL param (String)
+    Returns: [Post] (JSON) 
+*/
 app.use("/api/posts/category/:category", (req, res) => {
     const category = req.params.category;
     firUtils.getAllPostsByCat(category, (err, postSnapshot) => {
