@@ -25,8 +25,22 @@ function createPost(uid, postID, postObj) {
     firebase.database().ref('usersPosts/' + uid + '/' + postID).set(postObj);
 }
 
+function getPostByUser(uid, callback) {
+    firebase.database().ref('usersPosts/' + uid).get().then((snapshot) => {
+        if (snapshot.exists()) {
+            console.log('snapshot' + snapshot.val())
+            callback(null, snapshot.val())
+        } else {
+            callback(null, null)
+        }
+    }).catch((error) => {
+        console.error(error);
+        callback(error, null)
+    })
+}
 module.exports = {
     storeUserData,
     getUserByUID,
     createPost,
+    getPostByUser,
 }
