@@ -22,14 +22,15 @@ const NewPost = ({userData}) => {
         description: description,  
         isRequest: isRequest,
         productLink: null, 
-        category: shelterType
+        category: shelterType,
+        quantity: 0
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault()
         axios.post('http://localhost:4000/api/post/create', posting)
         .then((response) => {  
             console.log(response)
+            setDescription('')
         },                    
         (error) => {
           console.log(error);
