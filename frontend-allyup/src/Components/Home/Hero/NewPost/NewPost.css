@@ -1,0 +1,9 @@
+#profile-pic {
+    width: 10%;
+    border-radius: 50%;
+}
+
+#display-heading {
+    display: flex;
+    align-items:center;
+}
