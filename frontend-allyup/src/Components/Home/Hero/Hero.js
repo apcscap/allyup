@@ -5,9 +5,33 @@ export default function Hero() {
     return (
         <div className="hero-container">
             <div className="hero-actionbar">
-                Hi
+                Add Posts here
             </div>
 
+            <div className="hero-actionbar">
+                Temp
+            </div>
+
+            <div className="hero-actionbar">
+                Temp
+            </div>
+
+            <div className="hero-actionbar">
+                Temp
+            </div>
+
+            <div className="hero-actionbar">
+                Temp
+            </div>
+            <div className="hero-actionbar">
+                Temp
+            </div>
+            <div className="hero-actionbar">
+                Temp
+            </div>
+            <div className="hero-actionbar">
+                Temp
+            </div>
             <div className="hero-actionbar">
                 Temp
             </div>
