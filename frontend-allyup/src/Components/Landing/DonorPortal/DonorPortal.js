@@ -1,7 +1,7 @@
 import React from 'react'
 import './DonorPortal.css'
 import { FaArrowAltCircleRight } from 'react-icons/fa'
-import donation from '../../imgs/donation.png'
+import donation from '../../imgs/donation.jpeg'
 
 const DonorPortal = () => {
     return (

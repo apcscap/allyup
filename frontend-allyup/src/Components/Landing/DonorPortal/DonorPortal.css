@@ -37,7 +37,7 @@
     }
 }
 
-#donation-img {
-    width: 20px;
-    height: 20px;
+#donation-img { 
+    width: 50%;
+    margin: 0 25%;
 }

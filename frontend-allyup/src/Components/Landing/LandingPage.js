@@ -6,7 +6,7 @@ import DonorPortal from './DonorPortal/DonorPortal';
 
 const Landing = () => {
     return (
-        <>
+        <div className="landing-container">
             <div className="title">
                 <img id="logo" src={logo} alt="AllyUp logo"></img>
                 <h1 id="title-text">AllyUp</h1>
@@ -20,7 +20,7 @@ const Landing = () => {
                 <ShelterPortal />     
                 <DonorPortal />                
             </div>
-        </>
+        </div>
     )
 }
 
