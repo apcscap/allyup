@@ -7,6 +7,7 @@ import Post from '../Post/Post'
 export default function Hero() {
 
     const [userData, setUserData] = useState({})
+    const [posts, setPosts] = useState([])
 
     useEffect(() => {        
         axios.get('http://localhost:4000/api/user')
@@ -17,7 +18,18 @@ export default function Hero() {
           },                    
           (error) => {
             console.log(error);
-          })
+        });
+        
+        axios.get('http://localhost:4000/api/posts')
+          .then((response) => {  
+            const res = response.data                                       
+            setPosts(res)
+            console.log(res)
+          },                    
+          (error) => {
+            console.log(error);
+        });
+
     }, []);
 
     return (
@@ -26,12 +38,24 @@ export default function Hero() {
                 <NewPost userData={userData}/>
             </div>
 
+            {posts.map((post) => (
+                <Post 
+                   name={post.title}
+                   category={post.category}
+                   desc={post.description}
+                   date={post.date}
+                   isRequest={post.isRequest}
+                   productLink={post.productLink}
+                   uid={post.uid}
+                />
+            ))}
+
             <Post 
                 imgUrl="data:image/jpeg;base64,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"
                 name="Example Dog Shelter"
                 address="4100 Ulloa SF, CA (94122)"
                 email="dogexampleshelter@gmail.com"
-                shelterType="Animal Shelter"
+                category="Animal Shelter"
                 desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
             />
 
@@ -40,7 +64,7 @@ export default function Hero() {
                 name="Example Cat Shelter"
                 address="4100 Ulloa SF, CA (94122)"
                 email="catexampleshelter@gmail.com"
-                shelterType="Animal Shelter"
+                category="Animal Shelter"
                 desc="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
             />
             
@@ -49,7 +73,7 @@ export default function Hero() {
                 name="Example Bat Shelter"
                 address="4100 Ulloa SF, CA (94122)"
                 email="batexampleshelter@gmail.com"
-                shelterType="Animal Shelter"
+                category="Animal Shelter"
                 desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
             />
 
@@ -58,7 +82,7 @@ export default function Hero() {
                 name="Example Poop Emoji Shelter"
                 address="4100 Ulloa SF, CA (94122)"
                 email="poopemojiexampleshelter@gmail.com"
-                shelterType="Animal Shelter"
+                category="Animal Shelter"
                 desc="less words"
             />
 
