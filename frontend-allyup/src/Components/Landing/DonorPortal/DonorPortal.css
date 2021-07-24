@@ -12,6 +12,7 @@
 
 #heading {
     margin-left: 1rem;
+    color: #6082B6  
 }
 
 .arrw-icon {
@@ -20,6 +21,10 @@
     color: green;
     border: none;    
     margin: 0.6rem 1.2rem;    
+}
+
+.arrw-icon:hover {
+    color: #50C878;
 }
 
 .positive {
