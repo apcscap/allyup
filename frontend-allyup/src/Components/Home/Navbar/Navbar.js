@@ -22,20 +22,19 @@ export default function Navbar() {
 
             <div className="navbar-nav">
                 <div className="navbar-etc">
-                    <span className="navbar-etcline1">Hello Guest</span>
-                    <span className="navbar-etcline2">Sign In</span>
-                </div>
+                    <span className="navbar-etcline1">Your</span>
+                    <span className="navbar-etcline2">Profile</span>
+                </div>                
                 <div className="navbar-etc">
                     <span className="navbar-etcline1">Donations</span>
                     <span className="navbar-etcline2">& Records</span>
                 </div>
                 <div className="navbar-etc">
-                    <span className="navbar-etcline1">Your</span>
-                    <span className="navbar-etcline2">Profile</span>
+                    <span className="navbar-etcline1">Our</span>
+                    <span className="navbar-etcline2">Mission</span>
                 </div>
                 <div className="navbar-homeIcon">
                     <AiFillHome id="navbar-homeIcon"/>
-                    Home
                 </div>
             </div>
         </div>
