@@ -11,6 +11,7 @@
 .hero-actionbar {
     width: calc(100% - 50px);
     height: 200px;
-    background-color: white;
+    background-color: #f5f5f5;
     margin: 10px 0 10px 0;
+
 }

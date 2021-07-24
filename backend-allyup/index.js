@@ -127,7 +127,7 @@ app.use("/api/post/create", (req, res) => {
         return res.status(501).send("User not logged in")
     }
     const postID = uuidv4();
-    const { title, description, quantity, isRequest, productLink, category} = req.body
+    const { title, description, quantity, isRequest, productLink, category } = req.body
 
     const postObj = {
         postID: postID,
@@ -182,14 +182,14 @@ app.use("/api/userposts/:id", (req, res) => {
     Params: URL param (String)
     Returns: [Post] (JSON) 
 */
-app.use("/api/posts/category/:category", (req, res) => {
-    const category = req.params.category;
-    firUtils.getAllPostsByCat(category, (err, postSnapshot) => {
+app.use("/api/category/:cat", (req, res) => {
+    const category = req.params.cat;
+    console.log(category)
+    firUtils.getAllPostsByCat(category, (err, postsInCat) => {
         if(err) {
             res.status(401).send(err.message)
         }
-        const postArray = Object.keys(postSnapshot).map(function(key) { return postSnapshot[key] })
-        res.send(postArray)
+        res.send(postsInCat)
     })
 })
 

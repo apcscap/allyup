@@ -7,14 +7,17 @@ import Post from '../Post/Post'
 export default function Hero() {
 
     const [userData, setUserData] = useState({})
-    const [posts, setPosts] = useState([])
+    const [posts, setPosts] = useState([]) 
+    const [isShelter, setIsShelter] = useState(false);  
 
     useEffect(() => {        
         axios.get('http://localhost:4000/api/user')
           .then((response) => {  
             const res = response.data                                       
             setUserData(res)      
+            setIsShelter(res.isShelter)
             console.log(res)
+            console.log(isShelter)
           },                    
           (error) => {
             console.log(error);
@@ -34,9 +37,10 @@ export default function Hero() {
 
     return (
         <div className="hero-container">
-            <div className="hero-actionbar">
+
+            {isShelter && <div className="hero-actionbar">
                 <NewPost userData={userData}/>
-            </div>
+            </div>}
 
             {posts.map((post) => (
                 <Post 

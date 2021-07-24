@@ -52,11 +52,28 @@ function getAllPosts(callback) {
     })
 }
 
+// function getAllPostsByCat(category, callback) {
+//     const ref = firebase.database().ref("posts")
+//     ref.orderByChild("category").equalTo(category).on('child_changed', (postSnapShot) => {
+//         postSnapShot.forEach(element => {
+//             console.log(element)
+//         });
+//         if (postSnapShot.exists()) {
+//             callback(null, postSnapShot.val())
+//         } else {
+//             callback(null, null)
+//         }
+//     })
+// }
+
 function getAllPostsByCat(category, callback) {
-    firebase.database().ref("posts/").orderByChild("category").equalTo(category).on("child_added", function(postSnapShot) {
-        console.log(snapshot.key);
-        if (snapshot.exists()) {
-            callback(null, snapshot.val())
+    firebase.database().ref("posts/").get().then((postSnapshot) => {
+        if (postSnapshot.exists()) {
+            const data = postSnapshot.val()
+            const postsInCat = Object.keys(data)
+                                .map(function(key) { return data[key] })
+                                .filter(item => item['category'] == category)
+            callback(null, postsInCat)
         } else {
             callback(null, null)
         }
@@ -65,10 +82,12 @@ function getAllPostsByCat(category, callback) {
         callback(error, null)
     })
 }
+
 module.exports = {
     storeUserData,
     getUserByUID,
     createPost,
     getPostByUser,
     getAllPosts,
+    getAllPostsByCat,
 }

@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import './NewPost.css'
+import axios from 'axios'
 
 const NewPost = ({userData}) => {
 
@@ -12,6 +13,28 @@ const NewPost = ({userData}) => {
     const email = userData.email
     const shelterType = userData.shelterType
     const address = userData.address
+    const isRequest = userData.isShelter
+
+    const [description, setDescription] = useState('')
+
+    const posting = { 
+        title: name, 
+        description: description,  
+        isRequest: isRequest,
+        productLink: null, 
+        category: shelterType
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        axios.post('http://localhost:4000/api/post/create', posting)
+        .then((response) => {  
+            console.log(response)
+        },                    
+        (error) => {
+          console.log(error);
+        })
+    }
 
     return (
         <div>
@@ -43,6 +66,24 @@ const NewPost = ({userData}) => {
                     </div>
                 </div>
             </div>
+
+            <form id="display-form" onSubmit={handleSubmit}>
+                <textarea 
+                    id="display-description"
+                    type="text-area" 
+                    placeholder="Write your donation request here..."
+                    onChange={e => setDescription(e.target.value)}
+                    value={description}
+                    >
+                </textarea>
+
+                <button 
+                    type="submit"                    
+                    id="display-submit"
+                    >
+                    POST    
+                </button>
+            </form>
         </div>
     )
 }
