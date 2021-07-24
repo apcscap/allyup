@@ -3,7 +3,6 @@ const cors = require("cors");
 const authMiddleware = require("./auth-middleware");
 const firebase = require("./firebase/index");
 const firUtils = require("./util/firUtils.js");
-const getUserByUID = require("./util/firUtils.js")
 
 const app = express();
 app.use(cors());
@@ -16,7 +15,7 @@ app.use(cors());
 */
 app.use("/api/signup", (req, res) => {
 
-    const { name, email, password, isShelter, address, imageURL } = req.query
+    const { name, email, password, isShelter, shelterType, address, imageURL } = req.query
 
     firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((userCredential) => {
@@ -27,6 +26,7 @@ app.use("/api/signup", (req, res) => {
             name: name, 
             email: user.email,
             isShelter: isShelter,
+            shelterType: shelterType,
             address: address,
             imageURL: imageURL,
         }
