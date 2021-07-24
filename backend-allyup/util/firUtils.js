@@ -22,7 +22,7 @@ function createPost(uid, postID, postObj) {
     // will store all posts under 'posts'
     firebase.database().ref('posts/' + postID).set(postObj);
     // will store post under a user id
-    firebase.database().ref('usersPosts' + uid).set(postObj);
+    firebase.database().ref('usersPosts/' + uid + '/' + postID).set(postObj);
 }
 
 module.exports = {
