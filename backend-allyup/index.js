@@ -3,6 +3,7 @@ const cors = require("cors");
 const authMiddleware = require("./auth-middleware");
 const firebase = require("./firebase/index");
 const firUtils = require("./util/firUtils.js");
+const { v4:uuidv4 } = require("uuid");
 
 const app = express();
 app.use(cors());
@@ -102,9 +103,21 @@ app.use("/api/logout", (req, res) => {
     Returns: Post Obj (JSON)
 */
 app.use("/api/post/create", (req, res) => {
-    const user = firebase.auth().currentUser
+    const user = firebase.auth().currentUser;
+    const postID = uuidv4();
+    const { title, description, quantity} = req.query
+
+    const postObj = {
+        postID: postID,
+        uid: user.uid, // uid of the creator of the post
+        title: title,
+        description: description,
+        date: Date.now(),
+        quantity: quantity,
+    }
     
-    res.send('hello')
+    firUtils.createPost(user.uid, postID, postObj);
+    res.send(postObj);
 })
 
 /* Retrieve one post by the id
