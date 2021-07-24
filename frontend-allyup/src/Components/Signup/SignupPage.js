@@ -122,14 +122,11 @@ export default function SignupPage({isShelter, setIsShelter}) {
                     </input>
                 </div>
 
-                
-                <Link to={link}>
-                    <input 
-                        type="submit"                     
-                        className="submit-button"                 
-                        value="Register">
-                    </input>
-                </Link>
+                <input 
+                    type="submit"                     
+                    className="submit-button"                 
+                    value="Register">
+                </input>
                 
                 <span id="footer">
                     Already have an account?&nbsp;
