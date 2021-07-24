@@ -1,7 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 const authMiddleware = require("./auth-middleware");
-const firebase = require("./firebase/index")
+const firebase = require("./firebase/index");
+const firUtils = require("./util/firUtils.js");
 
 const app = express();
 app.use(cors());
@@ -14,14 +15,25 @@ app.use(cors());
 */
 app.use("/api/signup", (req, res) => {
 
-    const { email, password } = req.query
+    const { name, email, password, isShelter, shelterType, address, imageURL } = req.query
 
     firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((userCredential) => {
         // Signed in 
         var user = userCredential.user;
-        console.log(user)
-        res.send(user).uid
+
+        const userObj = {
+            name: name, 
+            email: user.email,
+            isShelter: isShelter,
+            shelterType: shelterType,
+            address: address,
+            imageURL: imageURL,
+        }
+        
+        firUtils.storeUserData(user.uid, userObj)
+
+        res.send(userObj)
     })
     .catch((error) => {
         var errorCode = error.code;
@@ -37,10 +49,12 @@ app.use("/api/signup", (req, res) => {
 */
 app.use("/api/user", (req, res) => {
     const user = firebase.auth().currentUser
-    if (!user) {
-        return res.status(401).end('There is no user signed in')
-    }
-    res.send(user.uid)
+    firUtils.getUserByUID(user.uid, (err, userSnapshot) => {
+        if(err) {
+            res.status(401).end(err.message)
+        }
+        res.send(userSnapshot)
+    })
 })
 
 /* Sign in User
@@ -53,9 +67,13 @@ app.use("/api/signin", (req, res) => {
     .then((userCredential) => {
         // Signed in
         var user = userCredential.user;
-        // ...
-
-        res.send(user.email)
+        
+        firUtils.getUserByUID(user.uid, (err, userSnapshot) => {
+            if (err) {
+                res.status(401).end(err.message)
+            }
+            res.send(userSnapshot)
+        })
     })
     .catch((error) => {
         var errorCode = error.code;
@@ -78,4 +96,31 @@ app.use("/api/logout", (req, res) => {
         res.status(401).send('We made and oopsy')
     });
 })
+
+/* Create a post for a shelter
+    Params: HTTP Request
+    Returns: Post Obj (JSON)
+*/
+app.use("/api/post/create", (req, res) => {
+    const user = firebase.auth().currentUser
+    
+    res.send('hello')
+})
+
+/* Retrieve one post by the id
+    Params: None
+    Returns: [Post] (JSON) 
+*/
+app.use("/api/post/:id", (req, res) => {
+
+})
+
+/* Retrieve all posts made by a user
+    Params: None
+    Returns: [Post] (JSON) 
+*/
+app.use("/api/post/user/:id", (req, res) => {
+
+})
+
 app.listen(4000, () => console.log("The server is running at PORT 4000"));

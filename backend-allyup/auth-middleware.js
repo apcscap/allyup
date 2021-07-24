@@ -1,5 +1,5 @@
 /*
-    auth-middleware.js
+    auth-middleware.js (NOTE: Not in use at the moment)
 */
 const firebase = require("./firebase/index");
 
