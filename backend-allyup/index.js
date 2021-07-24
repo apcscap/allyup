@@ -1,7 +1,9 @@
 const express = require("express");
 const cors = require("cors");
 const authMiddleware = require("./auth-middleware");
-const firebase = require("./firebase/index")
+const firebase = require("./firebase/index");
+const firUtils = require("./util/firUtils.js");
+const getUserByUID = require("./util/firUtils.js")
 
 const app = express();
 app.use(cors());
@@ -14,14 +16,23 @@ app.use(cors());
 */
 app.use("/api/signup", (req, res) => {
 
-    const { email, password } = req.query
+    const { name, email, password, isShelter, address, imageURL } = req.query
 
     firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((userCredential) => {
         // Signed in 
         var user = userCredential.user;
-        console.log(user)
-        res.send(user).uid
+
+        const userObj = {
+            name: name, 
+            email: user.email,
+            isShelter: isShelter,
+            address: address,
+            imageURL: imageURL,
+        }
+        firUtils.storeUserData(user.uid, userObj)
+
+        res.send(userObj)
     })
     .catch((error) => {
         var errorCode = error.code;
@@ -37,10 +48,12 @@ app.use("/api/signup", (req, res) => {
 */
 app.use("/api/user", (req, res) => {
     const user = firebase.auth().currentUser
-    if (!user) {
-        return res.status(401).end('There is no user signed in')
-    }
-    res.send(user.uid)
+    firUtils.getUserByUID(user.uid, (err, userSnapshot) => {
+        if(err) {
+            res.status(401).end(err.messages)
+        }
+        res.send(userSnapshot)
+    })
 })
 
 /* Sign in User
