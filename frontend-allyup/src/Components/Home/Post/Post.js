@@ -24,7 +24,7 @@ export default function Post(props) {
     return (
         <div className="post-container">
             <div className="post-image">
-                <img src={userData.imgUrl} className="post-image"/>
+                <img src={userData.imageURL} className="post-image"/>
             </div>
 
             <div className="post-content">
