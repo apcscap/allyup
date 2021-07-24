@@ -1,9 +1,10 @@
 import React from 'react'
+import './Hero.css'
 
 export default function Hero() {
     return (
-        <div>
-            hi
+        <div className="hero-container">
+            test
         </div>
     )
 }
