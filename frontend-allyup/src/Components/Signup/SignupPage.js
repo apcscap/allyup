@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import logo from '../imgs/logo.png'
+import logo from '../../imgs/logo.png'
 import { BiUser } from 'react-icons/bi'
 import { RiLockPasswordFill } from 'react-icons/ri'
 import { Link, useHistory } from "react-router-dom";

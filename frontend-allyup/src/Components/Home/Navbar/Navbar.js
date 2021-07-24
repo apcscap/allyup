@@ -1,6 +1,6 @@
 import React from 'react'
 import './Navbar.css'
-import logo from '../../imgs/logo.png'
+import logo from '../../../imgs/logo.png'
 import { BsSearch } from 'react-icons/bs'
 import { AiFillHome } from 'react-icons/ai'
 
