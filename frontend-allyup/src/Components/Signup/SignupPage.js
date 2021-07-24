@@ -9,6 +9,7 @@ import { SiGooglestreetview } from 'react-icons/si'
 import {AiFillPicture } from 'react-icons/ai'
 import axios from 'axios'
 
+
 export default function SignupPage({isShelter, setIsShelter}) {
 
     const [userName, setUserName] = useState('')

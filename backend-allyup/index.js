@@ -19,7 +19,7 @@ app.use(cors());
 app.use("/api/signup", (req, res) => {
 
     const { name, email, password, isShelter, shelterType, address, imageURL } = req.body
-
+    console.log(name)
     firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((userCredential) => {
         // Signed in 
