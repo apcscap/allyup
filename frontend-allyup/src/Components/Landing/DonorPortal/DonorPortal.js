@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import './DonorPortal.css'
 import { FaArrowAltCircleRight } from 'react-icons/fa'
-import donation from '../../imgs/donation.jpeg'
+import donation from '../../../imgs/donation.jpeg'
 
 const DonorPortal = ({isShelter, setIsShelter}) => {
     return (

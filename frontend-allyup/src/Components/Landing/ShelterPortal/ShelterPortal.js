@@ -2,7 +2,7 @@ import './ShelterPortal.css'
 import { Link } from "react-router-dom";
 import React from 'react'
 import { FaArrowAltCircleRight } from 'react-icons/fa'
-import shelter from '../../imgs/shelter.png'
+import shelter from '../../../imgs/shelter.png'
 
 const ShelterPortal = ({isShelter, setIsShelter}) => {
     return (

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import logo from '../imgs/logo.png'
+import logo from '../../imgs/logo.png'
 import './LoginPage.css'
 import { BiUser } from 'react-icons/bi'
 import { RiLockPasswordFill } from 'react-icons/ri'

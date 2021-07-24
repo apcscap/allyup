@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import logo from '../imgs/logo.png'
+import logo from '../../imgs/logo.png'
 import './LandingPage.css';
 import ShelterPortal from './ShelterPortal/ShelterPortal';
 import DonorPortal from './DonorPortal/DonorPortal';
