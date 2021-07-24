@@ -176,4 +176,11 @@ app.use("/api/userposts/:id", (req, res) => {
     })
 })
 
+app.use("/api/posts/category/:category"), (req, res) => {
+    const category = req.params.category;
+    firUtils.getAllPostsByCat(category, (err, postSnapshot) => {
+
+    })
+}
+
 app.listen(4000, () => console.log("The server is running at PORT 4000"));
