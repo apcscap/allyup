@@ -1,9 +1,54 @@
 #profile-pic {
-    width: 10%;
-    border-radius: 50%;
+    width: 3em;
 }
 
 #display-heading {
     display: flex;
     align-items:center;
+}
+
+#display-name {
+    margin: 10px;
+    max-width: max-content;
+    font-size: 25px;
+    font-weight: 100;
+    background-color: lightgray;
+}
+
+#details-container {
+    margin: 0 10px 0px 10px;
+    width: auto;
+    font-size: 16px;
+    color: rgb(87, 87, 87);
+}
+
+#display-description {
+    width: 80%;
+    border: none;
+    padding: 5px 5px 13vh 5px;
+    margin: 0 0.5vw 0 5.5vw;
+    border-radius: 10px;    
+}
+
+#display-description:focus {
+    outline: none;
+    box-shadow: 5px 5px 5px #CBC3E3;    
+}
+
+#display-form {
+    display:flex;
+    justify-content: space-around;
+}
+
+#display-submit {
+    background-color:#CF9FFF;
+    color: white;
+    width: 5rem;
+    height: 2.5rem;
+    align-self: center;
+    border: none;
+}
+
+#display-submit:hover {
+    background-color: #CBC3E3;
 }
