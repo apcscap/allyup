@@ -1,3 +1,8 @@
+.landing-container {
+    background-image: linear-gradient(#bdd4e7, #8693ab);
+    height: 100vh;
+}
+
 .title {
     display: flex;
     justify-content: center;        
@@ -26,7 +31,7 @@
 
 #hero-container {    
     width: 90vw;
-    height: 55vh;
+    height: 60vh;
     margin: 2.5rem auto;
     display: flex;
     justify-content: space-between;
@@ -38,3 +43,4 @@
         height: 50%;
     }    
 }
+
