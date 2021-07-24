@@ -2,12 +2,13 @@ import React, {useState} from 'react'
 import logo from '../imgs/logo.png'
 import { BiUser } from 'react-icons/bi'
 import { RiLockPasswordFill } from 'react-icons/ri'
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { AiOutlineMail } from 'react-icons/ai'
 import {RiHomeHeartFill} from 'react-icons/ri'
 import { SiGooglestreetview } from 'react-icons/si'
 import {AiFillPicture } from 'react-icons/ai'
 import axios from 'axios'
+
 
 
 export default function SignupPage({isShelter, setIsShelter}) {
@@ -19,6 +20,7 @@ export default function SignupPage({isShelter, setIsShelter}) {
     const [address, setAddress] = useState('')
     const [imgUrl, setImgUrl] = useState('')
     
+    const history = useHistory()
 
     const user = {
         name: userName,
@@ -34,7 +36,8 @@ export default function SignupPage({isShelter, setIsShelter}) {
         e.preventDefault();
         axios.post('http://localhost:4000/api/signup', user)
           .then((response) => {
-            console.log(response);            
+            console.log(response); 
+            history.push('/login')           
           },           
           (error) => {
             console.log(error);
@@ -54,6 +57,7 @@ export default function SignupPage({isShelter, setIsShelter}) {
                         className="user-input"
                         onChange={e => setUserName(e.target.value)}
                         value={userName}
+                        required
                         >
                         
                     </input>
@@ -67,6 +71,7 @@ export default function SignupPage({isShelter, setIsShelter}) {
                         className="user-input"
                         onChange={e => setEmail(e.target.value)}
                         value={email}
+                        required
                         >
                     </input>
                 </div>
@@ -79,6 +84,7 @@ export default function SignupPage({isShelter, setIsShelter}) {
                         className="user-input"
                         onChange={e => setPassword(e.target.value)}
                         value={password}
+                        required
                         >
 
                     </input>
@@ -92,6 +98,7 @@ export default function SignupPage({isShelter, setIsShelter}) {
                         className="user-input"
                         onChange={e => setShelterType(e.target.value)}
                         value={shelterType}
+                        required
                         >
 
                     </input>
@@ -104,7 +111,8 @@ export default function SignupPage({isShelter, setIsShelter}) {
                         placeholder="Address" 
                         className="user-input"
                         onChange={e => setAddress(e.target.value)}
-                        value={address}>
+                        value={address}
+                        required>
 
                     </input>
                 </div>}
@@ -116,7 +124,8 @@ export default function SignupPage({isShelter, setIsShelter}) {
                         placeholder="Img Url" 
                         className="user-input"
                         onChange={e => setImgUrl(e.target.value)}
-                        value={imgUrl}>
+                        value={imgUrl}
+                        required>
 
                     </input>
                 </div>
