@@ -97,7 +97,7 @@ app.use("/api/signin", (req, res) => {
         var errorCode = error.code;
         var errorMessage = error.message;
 
-        res.send(errorMessage)
+        res.status(401).send(errorMessage)
     });
 })
 
@@ -122,7 +122,7 @@ app.use("/api/logout", (req, res) => {
 app.use("/api/post/create", (req, res) => {
     const user = firebase.auth().currentUser;
     const postID = uuidv4();
-    const { title, description, quantity, isRequest } = req.body
+    const { title, description, quantity, isRequest, productLink, category} = req.body
 
     const postObj = {
         postID: postID,
@@ -132,12 +132,23 @@ app.use("/api/post/create", (req, res) => {
         date: Date.now(),
         quantity: quantity,
         isRequest: isRequest,
+        productLink: productLink,
+        category: category,
     }
     
     firUtils.createPost(user.uid, postID, postObj);
     res.send(postObj);
 })
 
+app.use("/api/posts/", (req, res) => {
+    firUtils.getAllPosts(function(error, postSnapshot) {
+        if(error) {
+            res.status(401).send(error.message)
+        }
+        const postArray = Object.keys(postSnapshot).map(function(key) { return postSnapshot[key] })
+        res.send(postArray)
+    })
+})
 /* Retrieve one post by the id
     Params: None
     Returns: [Post] (JSON) 
