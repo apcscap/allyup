@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from '../imgs/logo.png'
 import './LandingPage.css';
 import ShelterPortal from './ShelterPortal/ShelterPortal';
 import DonorPortal from './DonorPortal/DonorPortal';
 
-const Landing = () => {
+const Landing = ({isShelter, setIsShelter}) => {
+
     return (
         <div className="landing-container">
             <div className="title">
@@ -17,8 +18,14 @@ const Landing = () => {
             </div>
 
             <div id="hero-container">   
-                <ShelterPortal />     
-                <DonorPortal />                
+                <ShelterPortal 
+                    isShelter={isShelter} 
+                    setIsShelter={setIsShelter}
+                />     
+                <DonorPortal
+                    isShelter={isShelter} 
+                    setIsShelter={setIsShelter}                 
+                />                
             </div>
         </div>
     )
