@@ -38,9 +38,24 @@ function getPostByUser(uid, callback) {
         callback(error, null)
     })
 }
+
+function getAllPosts(callback) {
+    firebase.database().ref("posts/").get().then((snapshot) => {
+        if (snapshot.exists()) {
+            callback(null, snapshot.val())
+        } else {
+            callback(null, null)
+        }
+    }).catch((error) => {
+        console.error(error);
+        callback(error, null)
+    })
+}
+
 module.exports = {
     storeUserData,
     getUserByUID,
     createPost,
     getPostByUser,
+    getAllPosts,
 }
