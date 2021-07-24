@@ -21,7 +21,7 @@ export default function LoginPage() {
                     <input type="password" placeholder="Password" className="user-input"></input>
                 </div>
 
-                <input type="submit" className="submit-button"></input>
+                <input type="submit" className="submit-button" value="Sign In"></input>
 
                 <span id="footer">
                     Don't have an account?&nbsp;
