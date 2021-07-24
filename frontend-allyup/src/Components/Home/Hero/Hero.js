@@ -4,7 +4,13 @@ import './Hero.css'
 export default function Hero() {
     return (
         <div className="hero-container">
-            test
+            <div className="hero-actionbar">
+                Hi
+            </div>
+
+            <div className="hero-actionbar">
+                Temp
+            </div>
         </div>
     )
 }
