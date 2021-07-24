@@ -6,6 +6,8 @@ const firUtils = require("./util/firUtils.js");
 const { v4:uuidv4 } = require("uuid");
 
 const app = express();
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(cors());
 
 // app.use("/");
@@ -16,7 +18,7 @@ app.use(cors());
 */
 app.use("/api/signup", (req, res) => {
 
-    const { name, email, password, isShelter, shelterType, address, imageURL } = req.query
+    const { name, email, password, isShelter, shelterType, address, imageURL } = req.body
 
     firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((userCredential) => {
@@ -77,7 +79,7 @@ app.use("/api/profile/:id", (req, res) => {
     Returns: User Object (JSONN) 
 */
 app.use("/api/signin", (req, res) => {
-    const { email, password } = req.query
+    const { email, password } = req.body
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then((userCredential) => {
         // Signed in
@@ -119,7 +121,7 @@ app.use("/api/logout", (req, res) => {
 app.use("/api/post/create", (req, res) => {
     const user = firebase.auth().currentUser;
     const postID = uuidv4();
-    const { title, description, quantity, isRequest } = req.query
+    const { title, description, quantity, isRequest } = req.body
 
     const postObj = {
         postID: postID,
