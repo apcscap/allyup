@@ -14,7 +14,7 @@ function getUserByUID(uid, callback) {
     })
 }
 
-async function storeUserData(uid, userObj) {
+function storeUserData(uid, userObj) {
     firebase.database().ref('users/' + uid).set(userObj);
 }
 
