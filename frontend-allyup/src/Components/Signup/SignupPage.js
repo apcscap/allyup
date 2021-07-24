@@ -27,7 +27,7 @@ export default function SignupPage({isShelter, setIsShelter}) {
         shelterType: shelterType,
         isShelter: isShelter,
         address: address,
-        imgUrl: imgUrl
+        imageURL: imgUrl
     }
 
     const handleSubmit = (e) => {
