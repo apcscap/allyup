@@ -1,11 +1,9 @@
 import React from 'react'
 
-const Registeration = () => {
+export default function SignupPage() {
     return (
         <div>
-            
+            signup
         </div>
     )
 }
-
-export default Registeration
