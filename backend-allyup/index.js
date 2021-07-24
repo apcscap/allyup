@@ -21,7 +21,7 @@ app.use("/api/signup", (req, res) => {
         // Signed in 
         var user = userCredential.user;
         console.log(user)
-        res.send(user.id)
+        res.send(user).uid
     })
     .catch((error) => {
         var errorCode = error.code;
