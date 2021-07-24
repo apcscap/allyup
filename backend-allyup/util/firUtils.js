@@ -52,6 +52,19 @@ function getAllPosts(callback) {
     })
 }
 
+function getAllPostsByCat(category, callback) {
+    firebase.database().ref("posts/").orderByChild("category").equalTo(category).on("child_added", function(postSnapShot) {
+        console.log(snapshot.key);
+        if (snapshot.exists()) {
+            callback(null, snapshot.val())
+        } else {
+            callback(null, null)
+        }
+    }).catch((error) => {
+        console.error(error);
+        callback(error, null)
+    })
+}
 module.exports = {
     storeUserData,
     getUserByUID,
