@@ -1,13 +1,14 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react'
 import LandingPage from './Landing/LandingPage'
 import HomePage from './Home/HomePage'
 import LoginPage from './Login/LoginPage'
 import SignupPage from './Signup/SignupPage'
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
+
  function App() {
 
-  const [isShelter, setIsShelter] = useState(true);
+    const [isShelter, setIsShelter] = useState(true);
 
    return (
       <BrowserRouter>

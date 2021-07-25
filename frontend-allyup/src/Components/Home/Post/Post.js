@@ -11,8 +11,7 @@ export default function Post(props) {
         axios.get('http://localhost:4000/api/profile/' + props.uid)
           .then((response) => {  
             const res = response.data                                       
-            setUserData(res)
-            console.log(res)
+            setUserData(res)            
           },                    
           (error) => {
             console.log(error);
