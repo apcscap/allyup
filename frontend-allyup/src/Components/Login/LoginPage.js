@@ -31,43 +31,45 @@ export default function LoginPage({isShelter, setIsShelter}) {
     }
 
     return (
-        <div className="login-container">
-            <img src={logo} alt="AllyUp logo" id="login-logo"></img>
+        <div className="login-page">
+            <div className="login-container">
+                <img src={logo} alt="AllyUp logo" id="login-logo"></img>
 
-            <form onSubmit={handleSubmit}>
-                <div className="input-container">
-                    <BiUser id="user"></BiUser>
-                    <input 
-                        type="text" 
-                        placeholder='Email' 
-                        className="user-input" 
-                        onChange={e => setEmail(e.target.value)} 
-                        value={email}
-                        required>
+                <form onSubmit={handleSubmit}>
+                    <div className="input-container">
+                        <BiUser id="user"></BiUser>
+                        <input 
+                            type="text" 
+                            placeholder='Email' 
+                            className="user-input" 
+                            onChange={e => setEmail(e.target.value)} 
+                            value={email}
+                            required>
 
-                    </input>
-                </div>
+                        </input>
+                    </div>
 
-                <div className="input-container">
-                    <RiLockPasswordFill id="lock"></RiLockPasswordFill>
-                    <input 
-                        type="password" 
-                        placeholder="Password" 
-                        className="user-input"
-                        onChange={e => setPassword(e.target.value)} 
-                        value={password}
-                        required>                            
-                    </input>
-                </div>
+                    <div className="input-container">
+                        <RiLockPasswordFill id="lock"></RiLockPasswordFill>
+                        <input 
+                            type="password" 
+                            placeholder="Password" 
+                            className="user-input"
+                            onChange={e => setPassword(e.target.value)} 
+                            value={password}
+                            required>                            
+                        </input>
+                    </div>
 
-                <input type="submit" className="submit-button" value="Sign In"></input>
+                    <input type="submit" className="submit-button" value="Sign In"></input>
 
-                <span id="footer">
-                    Don't have an account?&nbsp;
-                    <Link to='/signup'><p className="highlight">Register Now</p></Link>
-                </span>
-            </form>
+                    <span id="footer">
+                        Don't have an account?&nbsp;
+                        <Link to='/signup'><p className="highlight">Register Now</p></Link>
+                    </span>
+                </form>
 
+            </div>
         </div>
     )
 }

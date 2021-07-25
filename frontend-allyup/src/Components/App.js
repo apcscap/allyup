@@ -3,6 +3,7 @@ import LandingPage from './Landing/LandingPage'
 import HomePage from './Home/HomePage'
 import LoginPage from './Login/LoginPage'
 import SignupPage from './Signup/SignupPage'
+import RecordsPage from './Records/RecordsPage'
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 
@@ -18,7 +19,8 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
             <Route path="/login"><LoginPage isShelter={isShelter} setIsShelter={setIsShelter}/></Route>
             <Route path="/signup"><SignupPage isShelter={isShelter} setIsShelter={setIsShelter}/></Route>
             <Route path="/home"><HomePage /></Route>
-          </Switch>                 
+            <Route path="/records"><RecordsPage /></Route>
+          </Switch>
         </div>
       </BrowserRouter>
      );

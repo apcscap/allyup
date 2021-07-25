@@ -90,17 +90,17 @@ export default function SideBar({posts, setPosts}) {
             </div>
 
             <div className="sidebar-options">
-                <div className="sidebar-option">
+                <div className="sidebar-option" onClick={refresh}>
                     Browse
                 </div>
                 <div className="sidebar-option">
-                    Requests
+                    Donations & Records
                 </div>
                 <div className="sidebar-option">
-                    Donations
+                    Your Profile
                 </div>
                 <div className="sidebar-option">
-                    Saved
+                    Our Mission
                 </div>
             </div>
 
