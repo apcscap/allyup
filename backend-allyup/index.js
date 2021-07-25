@@ -160,7 +160,12 @@ app.use("/api/posts/", (req, res) => {
 */
 app.use("/api/post/:id", (req, res) => {
     const postID = req.params.id;
-    res.send(postID);
+    firUtils.getPostByID(postID, (err, postSnapshot) => {
+        if(err) {
+            res.status(501).send(err.message)
+        }
+        res.send(postSnapshot)
+    })
 })
 
 /* Retrieve all posts made by a user
@@ -195,7 +200,7 @@ app.use("/api/category/:cat", (req, res) => {
 
 /* User donates to a post
     Params: URL param (String)
-    Returns: [Post] (JSON) 
+    Returns: Status message
 */
 app.use("/api/donate/post/", (req, res) => {
     const user = firebase.auth().currentUser
