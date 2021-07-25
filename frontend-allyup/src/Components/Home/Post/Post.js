@@ -35,12 +35,16 @@ export default function Post(props) {
                     {userData.address} | {userData.email} | {userData.shelterType}
                 </div>
 
+                <a href={props.productLink} target="_blank" className="post-info">
+                    Product Link Here!
+                </a>
+
                 <div className="post-desc">
                     {props.desc}
                 </div>
 
                 <button className="post-button">
-                    Save | Donate | Recieve
+                    Save | Donate | Receive
                 </button>
             </div>
         </div>

@@ -15,7 +15,7 @@
 }
 .navbar-logo:hover {
     cursor: pointer;
-    filter: brightness(85%);
+    filter: brightness(30%);
 }
 
 #navbar-logo {
@@ -35,7 +35,7 @@
 }
 .navbar-title:hover {
     cursor: pointer;
-    filter: brightness(85%);
+    filter: brightness(30%);
 }
 
 .navbar-search {

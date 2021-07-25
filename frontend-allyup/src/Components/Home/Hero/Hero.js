@@ -9,9 +9,7 @@ export default function Hero({posts, isShelter, userData}) {
     return (
         <div className="hero-container">
 
-            {isShelter && <div className="hero-actionbar">
-                <NewPost userData={userData}/>
-            </div>}
+            {isShelter && <NewPost userData={userData}/>}
 
             {posts.sort(function (a, b) {
                 return b.date - a.date;
