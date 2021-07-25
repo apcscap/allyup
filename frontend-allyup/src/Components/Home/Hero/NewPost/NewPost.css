@@ -1,22 +1,40 @@
+.newpost-container {
+    width: calc(100% - 225px);
+    min-height: 300px;
+    background-color: #f5f5f5;
+    margin: 2.5rem 0 2.5rem 0;
+    border-radius: 20px;
+    min-width: 270px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;    
+}
+
 #profile-pic {
-    width: 3em;
+    width: 3.5em;
+    margin: 10px;
+    border-radius: 10px;
 }
 
 #display-heading {
     display: flex;
     align-items:center;
+    height: auto;
+    margin: 10px 0 0px 0;
 }
 
 #display-name {
-    margin: 10px;
+    margin: 0px 5px 0px 5px;
     max-width: max-content;
     font-size: 25px;
     font-weight: 100;
     background-color: lightgray;
+    
 }
 
 #details-container {
-    margin: 0 10px 0px 10px;
+    margin: 10px 10px 0px 5px;
     width: auto;
     font-size: 16px;
     color: rgb(87, 87, 87);
@@ -24,11 +42,25 @@
 
 #display-description {
     width: 80%;
+    min-height: 50px;
     border: none;
     padding: 5px 5px 100px 5px;
-    margin: 0 0.5px 0 5.5px;
     border-radius: 10px;    
     resize: none;
+}
+
+#display-productLink {
+    width: 80%;
+    height: 10px;
+    border: none;
+    padding: 5px 5px 10px 5px;
+    border-radius: 10px;    
+    resize: none;
+}
+
+#display-productLink:focus {
+    outline: none;
+    box-shadow: 5px 5px 5px #CBC3E3;    
 }
 
 #display-description:focus {
@@ -37,8 +69,13 @@
 }
 
 #display-form {
+    width: 100%;
+    min-height: 300px;
     display:flex;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 #display-submit {
