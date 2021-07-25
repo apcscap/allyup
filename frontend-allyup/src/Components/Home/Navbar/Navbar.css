@@ -16,7 +16,7 @@
 }
 .navbar-logo:hover {
     cursor: pointer;
-    filter: brightness(30%);
+    filter: brightness(169%);
 }
 
 #navbar-logo {
@@ -52,15 +52,17 @@
     border: none;
     width: 100%;
     font-size: 20px;
+    border-radius: 5px 0px 0px 5px;
 }
 
 .navbar-searchIcon {
     display: grid;
     place-items: center;
     width: 45px;
-    height: 31px;
+    height: 32px;
     background-color: #8693ab;
     margin-right: 10px;
+    border-radius: 0px 5px 5px 0px;
 }
 
 .navbar-searchIcon:hover {

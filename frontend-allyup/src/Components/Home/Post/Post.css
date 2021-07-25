@@ -10,11 +10,12 @@
     justify-content: flex-start;
     flex-wrap: wrap;
     align-items: center;
+    font-weight: 400;
 }
 
 .post-image{
     height: 100%;
-    border-radius: 20px;
+    border-radius: 20px 0px 0px 20px;
     width: 200px;
     background-color: black;
 }
