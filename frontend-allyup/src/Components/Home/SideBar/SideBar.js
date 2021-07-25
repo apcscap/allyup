@@ -7,11 +7,8 @@ import { FaDog } from 'react-icons/fa'
 import { CgGirl } from 'react-icons/cg'
 import axios from 'axios'
 import {MdRemoveShoppingCart} from 'react-icons/md'
-<<<<<<< HEAD
 import { Link } from 'react-router-dom'
-=======
 import { useHistory } from "react-router-dom";
->>>>>>> 65083568d973b7c269b8c60d9d401679c120a1a5
 
 export default function SideBar({posts, setPosts}) {
     const history = useHistory()
