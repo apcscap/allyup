@@ -12,7 +12,7 @@
 }
 
 #profile-pic {
-    width: 3.5em;
+    width: 5em;
     margin: 10px;
     border-radius: 10px;
 }
@@ -43,6 +43,7 @@
 #display-description {
     width: 80%;
     min-height: 50px;
+    font-size: 16px;
     border: none;
     padding: 5px 5px 100px 5px;
     border-radius: 10px;    
@@ -52,10 +53,12 @@
 #display-productLink {
     width: 80%;
     height: 10px;
+    font-size: 16px;
     border: none;
-    padding: 5px 5px 10px 5px;
+    padding: 5px 5px 20px 10px;
     border-radius: 10px;    
     resize: none;
+    overflow: hidden;
 }
 
 #display-productLink:focus {
@@ -83,6 +86,7 @@
     color: white;
     width: 5rem;
     height: 2.5rem;
+    font-size: 16px;
     align-self: center;
     border: none;
 }
