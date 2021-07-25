@@ -12,6 +12,7 @@
     top: 0;
     z-index: 100;
     justify-content: center;
+    font-weight: 600;
 }
 
 .curve{
