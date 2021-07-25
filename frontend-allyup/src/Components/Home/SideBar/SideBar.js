@@ -104,7 +104,7 @@ export default function SideBar({posts, setPosts}) {
     return (
         <div className="sidebar-container">
             <div className="sidebar-title">
-                <GiGreenhouse className="sidebar-titleicon"/>
+                <GiGreenhouse className="sidebar-titleicon" id="title"/>
                 Donation Center 
             </div>
 
@@ -130,32 +130,32 @@ export default function SideBar({posts, setPosts}) {
             </div>
             <div className="sidebar-categories">
                 <div className="sidebar-category" onClick={covid}>
-                    <GiTripleNeedle className="sidebar-titleicon" />
+                    <GiTripleNeedle className="sidebar-titleicon" id="covid"/>
                     COVID-19 Related
                 </div>
                 <div className="sidebar-category" onClick={homeless}>
-                    <AiFillHome className="sidebar-titleicon" />
+                    <AiFillHome className="sidebar-titleicon" id="homeless"/>
                     Homeless Shelters
                 </div>
                 <div className="sidebar-category" onClick={food}> 
-                    <GiOpenedFoodCan className="sidebar-titleicon"/>
+                    <GiOpenedFoodCan className="sidebar-titleicon" id="food"/>
                     Food Pantries
                 </div>
                 <div className="sidebar-category" onClick={animal}>
-                    <FaDog className="sidebar-titleicon"/>
+                    <FaDog className="sidebar-titleicon" id="animal"/>
                     Animal Shelters
                 </div>
                 <div className="sidebar-category" onClick={women}>
-                    <CgGirl className="sidebar-titleicon"/>
+                    <CgGirl className="sidebar-titleicon" id="women"/>
                     Women Shelters
                 </div>
                 <div className="sidebar-category" onClick={refugee}>
-                    <GiPaperBoat className="sidebar-titleicon"/>
+                    <GiPaperBoat className="sidebar-titleicon" id="refugee"/>
                     Refugee Shelters
                 </div>
 
                 <div className="sidebar-category" onClick={refresh}>
-                    <MdRemoveShoppingCart className="sidebar-titleicon"/>
+                    <MdRemoveShoppingCart className="sidebar-titleicon" id="refresh"/>
                     No Filter
                 </div>
             </div>

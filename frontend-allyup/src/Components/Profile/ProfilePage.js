@@ -35,10 +35,10 @@ export default function ProfilePage() {
       }, []);
       
     return (
-        <div className="recordspage-container">
+        <div className="home-container">
             <Navbar />
 
-            <div className="recordspage-content">
+            <div className="home-content">
                 <SideBar 
                     posts={posts}
                     setPosts={setPosts}

@@ -4,8 +4,8 @@ import './Profile.css'
 export default function Profile({posts, isShelter, userData}) {
 
     return (
-        <div className="records-container">
-            <div className="records-actionbar">
+        <div className="profile-container">
+            <div className="profile-actionbar">
                 This is profiles
             </div>
         </div>

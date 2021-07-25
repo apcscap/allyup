@@ -1,4 +1,4 @@
-.records-container {
+.profile-container {
     width: calc(100vw - 300px);
     min-height: 100%;
     display: flex;
@@ -8,7 +8,7 @@
     background-color: #EAEAEA;
 }
 
-.records-actionbar {
+.profile-actionbar {
     width: calc(100% - 50px);
     height: 200px;
     background-color: #f5f5f5;
