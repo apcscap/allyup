@@ -8,7 +8,7 @@
     margin-right: 3rem;
     width: 100%;
     height: 69px;
-    position: fixed;
+    /* position: fixed; */
     top: 0;
     z-index: 100;
 }
@@ -23,9 +23,9 @@
 
 .lorem {
     position: absolute;
-    margin-top: 17%;
-    margin-left: 7%;
-    font-size: 25px;
+    margin-top: 10%;
+    margin-left: 4%;
+    font-size: 30px;
     text-transform: uppercase;
     width: 400px;
     font-style: bold;
@@ -55,7 +55,7 @@
   }
 
 #hero-container {    
-    width: 90vw;
+    width: 69vw;
     height: 60vh;
     margin: 2.5rem auto;
     display: flex;
