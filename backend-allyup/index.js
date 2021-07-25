@@ -198,8 +198,9 @@ app.use("/api/category/:cat", (req, res) => {
     Returns: [Post] (JSON) 
 */
 app.use("/api/donate/post/", (req, res) => {
-    const uid = firebase.auth().currentUser
+    const user = firebase.auth().currentUser
     const { postID } = req.body
+    console.log(postID)
     if(!user) {
         return res.status(501).send("User not logged in")
     }
@@ -207,8 +208,12 @@ app.use("/api/donate/post/", (req, res) => {
         postID: postID,
         complete: true,
     }
-    firUtils.donateToPost(postID, uid)
-
+    firUtils.donateToPost(postID, user.uid, donationObj, (err, snapshot) => {
+        if(err) {
+            res.status(401).send(err.message)
+        }
+        res.status(200).send('Donated request completed')
+    })
 })
 
 app.listen(4000, () => console.log("The server is running at PORT 4000"));
