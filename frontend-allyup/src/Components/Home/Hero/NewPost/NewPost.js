@@ -16,12 +16,13 @@ const NewPost = ({userData}) => {
     const isRequest = userData.isShelter
 
     const [description, setDescription] = useState('')
+    const [productLink, setproductLink] = useState('')
 
     const posting = { 
         title: name, 
         description: description,  
         isRequest: isRequest,
-        productLink: null, 
+        productLink: productLink, 
         category: shelterType,
         quantity: 0
     }
@@ -31,6 +32,7 @@ const NewPost = ({userData}) => {
         .then((response) => {  
             console.log(response)
             setDescription('')
+            setproductLink('')
         },                    
         (error) => {
           console.log(error);
@@ -38,7 +40,7 @@ const NewPost = ({userData}) => {
     }
 
     return (
-        <div>
+        <div className="newpost-container">
             <div id="display-heading">
                 <img 
                     src={imgUrl}
@@ -49,7 +51,7 @@ const NewPost = ({userData}) => {
 
                 <div>
                     <span id="display-name">
-                        {name}     
+                        Make a post "{name}"!   
                     </span>
 
                     <div id="details-container">
@@ -75,6 +77,17 @@ const NewPost = ({userData}) => {
                     placeholder="Write your donation request here..."
                     onChange={e => setDescription(e.target.value)}
                     value={description}
+                    required
+                    >
+                </textarea>
+
+                <textarea 
+                    id="display-productLink"
+                    type="text-area" 
+                    placeholder="Product Link..."
+                    onChange={e => setproductLink(e.target.value)}
+                    value={productLink}
+                    required
                     >
                 </textarea>
 
