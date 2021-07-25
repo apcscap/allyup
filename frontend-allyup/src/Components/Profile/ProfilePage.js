@@ -1,19 +1,28 @@
 import React, {useState, useEffect} from 'react'
-import './RecordsPage.css'
+import './ProfilePage.css'
 import Navbar from '../Home/Navbar/Navbar'
 import SideBar from '../Home/SideBar/SideBar'
-import Records from './Records'
+import Profile from './Profile'
 import axios from 'axios'
 
-export default function RecordsPage() {
+export default function ProfilePage() {
 
     const [userData, setUserData] = useState({})    
     const [posts, setPosts] = useState([])
     const [isShelter, setIsShelter] = useState(true);
 
-    useEffect(() => {
+    useEffect(() => {        
+        axios.get('http://localhost:4000/api/user')
+          .then((response) => {  
+            const res = response.data                                       
+            setUserData(res)      
+            setIsShelter(res.isShelter)
+          },                    
+          (error) => {
+            console.log(error);
+        });
         
-        axios.get('http://localhost:4000/api/records')
+        axios.get('http://localhost:4000/api/posts')
           .then((response) => {  
             const res = response.data                                       
             setPosts(res)
@@ -26,16 +35,16 @@ export default function RecordsPage() {
       }, []);
       
     return (
-        <div className="recordspage-container">
+        <div className="home-container">
             <Navbar />
 
-            <div className="recordspage-content">
+            <div className="home-content">
                 <SideBar 
                     posts={posts}
                     setPosts={setPosts}
                 />
                 
-                <Records
+                <Profile
                     posts={posts}
                     isShelter={isShelter}
                     userData={userData}    

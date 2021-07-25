@@ -7,9 +7,14 @@ import { FaDog } from 'react-icons/fa'
 import { CgGirl } from 'react-icons/cg'
 import axios from 'axios'
 import {MdRemoveShoppingCart} from 'react-icons/md'
+<<<<<<< HEAD
 import { Link } from 'react-router-dom'
+=======
+import { useHistory } from "react-router-dom";
+>>>>>>> 65083568d973b7c269b8c60d9d401679c120a1a5
 
 export default function SideBar({posts, setPosts}) {
+    const history = useHistory()
 
     const covid = (e) => {
         axios.get('http://localhost:4000/api/category/covid')
@@ -81,17 +86,34 @@ export default function SideBar({posts, setPosts}) {
         window.location.reload(false)
     }
 
+    const sendToHome = () => {
+        history.push('/home')
+    }
+
+    const sendToRecords = () => {
+        history.push('/records')
+    }
+
+    const sendToProfile = () => {
+        history.push('/profile')
+    }
+
+    const sendToMission = () => {
+        history.push('/mission')
+    }
+
+
 
 
     return (
         <div className="sidebar-container">
             <div className="sidebar-title">
-                <GiGreenhouse className="sidebar-titleicon"/>
+                <GiGreenhouse className="sidebar-titleicon" id="title"/>
                 Donation Center 
             </div>
 
             <div className="sidebar-options">
-                <div className="sidebar-option" onClick={refresh}>
+                <div className="sidebar-option" onClick={sendToHome}>
                     Browse
                 </div>
                 <Link to="/records">
@@ -102,7 +124,7 @@ export default function SideBar({posts, setPosts}) {
                 <div className="sidebar-option">
                     Your Profile
                 </div>
-                <div className="sidebar-option">
+                <div className="sidebar-option" onClick={sendToMission}>
                     Our Mission
                 </div>
             </div>
@@ -114,32 +136,32 @@ export default function SideBar({posts, setPosts}) {
             </div>
             <div className="sidebar-categories">
                 <div className="sidebar-category" onClick={covid}>
-                    <GiTripleNeedle className="sidebar-titleicon" />
+                    <GiTripleNeedle className="sidebar-titleicon" id="covid"/>
                     COVID-19 Related
                 </div>
                 <div className="sidebar-category" onClick={homeless}>
-                    <AiFillHome className="sidebar-titleicon" />
+                    <AiFillHome className="sidebar-titleicon" id="homeless"/>
                     Homeless Shelters
                 </div>
                 <div className="sidebar-category" onClick={food}> 
-                    <GiOpenedFoodCan className="sidebar-titleicon"/>
+                    <GiOpenedFoodCan className="sidebar-titleicon" id="food"/>
                     Food Pantries
                 </div>
                 <div className="sidebar-category" onClick={animal}>
-                    <FaDog className="sidebar-titleicon"/>
+                    <FaDog className="sidebar-titleicon" id="animal"/>
                     Animal Shelters
                 </div>
                 <div className="sidebar-category" onClick={women}>
-                    <CgGirl className="sidebar-titleicon"/>
+                    <CgGirl className="sidebar-titleicon" id="women"/>
                     Women Shelters
                 </div>
                 <div className="sidebar-category" onClick={refugee}>
-                    <GiPaperBoat className="sidebar-titleicon"/>
+                    <GiPaperBoat className="sidebar-titleicon" id="refugee"/>
                     Refugee Shelters
                 </div>
 
                 <div className="sidebar-category" onClick={refresh}>
-                    <MdRemoveShoppingCart className="sidebar-titleicon"/>
+                    <MdRemoveShoppingCart className="sidebar-titleicon" id="refresh"/>
                     No Filter
                 </div>
             </div>

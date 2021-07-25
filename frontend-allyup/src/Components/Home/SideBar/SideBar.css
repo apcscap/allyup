@@ -20,6 +20,7 @@
 
 .sidebar-titleicon {
     margin-right: 10px;
+    border-radius: 50%;
 }
 
 .sidebar-options {
@@ -85,4 +86,36 @@
 .sidebar-category:hover {
     cursor: pointer;
     background-color: lightgray;
+}
+
+#covid {
+    background-color: lightgreen;
+}
+
+#homeless {
+    background-color: lightcyan;
+}
+
+#food {
+    background-color: yellow
+}
+
+#animal {
+    background-color: cornflowerblue;
+}
+
+#women {
+    background-color: lightpink;
+}
+
+#refugee {
+    background-color: lightsalmon;
+}
+
+#refresh {
+    background-color: lightseagreen;
+}
+
+#title {
+    background-color: lightseagreen;
 }
