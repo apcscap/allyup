@@ -20,6 +20,22 @@ export default function Post(props) {
 
     }, [])
 
+    function handleDonate() {
+        
+        const postData = {
+            postID: props.postID
+        }
+        console.log(postData)
+        axios.post('http://localhost:4000/api/donate/post/', postData)
+          .then((response) => {  
+            const res = response.data                                       
+            setUserData(res)            
+          },                    
+          (error) => {
+            console.log(error);
+        });
+    }
+
     return (
         <div className="post-container">
             <div className="post-image">
@@ -43,8 +59,8 @@ export default function Post(props) {
                     {props.desc}
                 </div>
 
-                <button className="post-button">
-                    Save | Donate | Receive
+                <button className="post-button" onClick={handleDonate}>
+                    Donate
                 </button>
             </div>
         </div>

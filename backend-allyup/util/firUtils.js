@@ -108,7 +108,7 @@ function donateToPost(postID, uid, donationObj, callback) {
                 completed: true,
                 uid: uid
             }
-            firebase.database().ref('userCompletedDonations/' + post.uid + '/' + postID).set(userObj)
+            firebase.database().ref('userCompletedDonations/' + post.uid + '/' + postID + '/').set(userObj)
             callback(null, donationObj)
         } else {
             console.log("We couldn't get data from the DB")
