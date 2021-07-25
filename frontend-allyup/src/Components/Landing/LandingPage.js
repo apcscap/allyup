@@ -9,10 +9,11 @@ const Landing = ({isShelter, setIsShelter}) => {
 
     return (
         <div className="landing-container">
-            <div className="title">
+            <div className="title box">
                 <img id="logo" src={logo} alt="AllyUp logo"></img>
                 <h1 id="title-text">AllyUp</h1>
             </div>
+            <div class="curve"></div>
             <div class="banner-container" style={{backgroundImage: `url(${charityBanner})`}}>
                 <div class="lorem"> 
                     <h1>Never Stop Giving!</h1>
