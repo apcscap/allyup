@@ -1,8 +1,19 @@
+.login-page {
+    width: 100vw;
+    min-height: 100vh;
+    margin: 0px;
+    padding: 0px;
+    background-image: linear-gradient(#eaeaea);     
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .login-container {
     width: 40vw;
-    height: 97vh;
-    background-color: #F8F5F5;
-    margin: 7.5vh auto;
+    min-height: 80vh;
+    background-color:#eaeaea;
+    margin: auto;
 }
 
 #login-logo {
@@ -47,6 +58,7 @@
     font-size: 1rem;          
     display: flex;
     justify-content: center;  
+    margin-bottom: 5vh;
 }
 
 .highlight {

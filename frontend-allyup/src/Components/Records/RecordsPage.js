@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react'
-import './HomePage.css'
-import Navbar from './Navbar/Navbar'
-import SideBar from './SideBar/SideBar'
-import Hero from './Hero/Hero'
+import './RecordsPage.css'
+import Navbar from '../Home/Navbar/Navbar'
+import SideBar from '../Home/SideBar/SideBar'
+import Records from './Records'
 import axios from 'axios'
 
-export default function Home() {
+export default function RecordsPage() {
 
     const [userData, setUserData] = useState({})    
     const [posts, setPosts] = useState([])
@@ -44,7 +44,7 @@ export default function Home() {
                     setPosts={setPosts}
                 />
                 
-                <Hero
+                <Records
                     posts={posts}
                     isShelter={isShelter}
                     userData={userData}    

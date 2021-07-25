@@ -45,104 +45,106 @@ export default function SignupPage({isShelter, setIsShelter}) {
     }
 
     return (
-        <div className="login-container">
-            <img src={logo} alt="AllyUp logo" id="login-logo"></img>
+        <div className="login-page">
+            <div className="login-container">
+                <img src={logo} alt="AllyUp logo" id="login-logo"></img>
 
-            <form onSubmit={handleSubmit}>
-                <div className="input-container">
-                    <BiUser id="user"></BiUser>
+                <form onSubmit={handleSubmit}>
+                    <div className="input-container">
+                        <BiUser id="user"></BiUser>
+                        <input 
+                            type="text" 
+                            placeholder='Username' 
+                            className="user-input"
+                            onChange={e => setUserName(e.target.value)}
+                            value={userName}
+                            required
+                            >
+                            
+                        </input>
+                    </div>
+
+                    <div className="input-container">
+                        <AiOutlineMail id="lock"></AiOutlineMail>
+                        <input 
+                            type="text" 
+                            placeholder="Email" 
+                            className="user-input"
+                            onChange={e => setEmail(e.target.value)}
+                            value={email}
+                            required
+                            >
+                        </input>
+                    </div>
+
+                    <div className="input-container">
+                        <RiLockPasswordFill id="lock"></RiLockPasswordFill>
+                        <input 
+                            type="password" 
+                            placeholder="Password" 
+                            className="user-input"
+                            onChange={e => setPassword(e.target.value)}
+                            value={password}
+                            required
+                            >
+
+                        </input>
+                    </div>
+
+                    {isShelter && <div className="input-container">
+                        <RiHomeHeartFill id="lock"></RiHomeHeartFill>
+                        <input 
+                            type="text" 
+                            placeholder="Shelter Type" 
+                            className="user-input"
+                            onChange={e => setShelterType(e.target.value)}
+                            value={shelterType}
+                            required
+                            >
+
+                        </input>
+                    </div>}
+
+                    {isShelter && <div className="input-container">
+                        <SiGooglestreetview id="lock"></SiGooglestreetview>
+                        <input 
+                            type="text" 
+                            placeholder="Address" 
+                            className="user-input"
+                            onChange={e => setAddress(e.target.value)}
+                            value={address}
+                            required>
+
+                        </input>
+                    </div>}
+
+                    <div className="input-container">
+                        <AiFillPicture id="lock"></AiFillPicture>
+                        <input 
+                            type="text" 
+                            placeholder="Img Url" 
+                            className="user-input"
+                            onChange={e => setImgUrl(e.target.value)}
+                            value={imgUrl}
+                            required>
+
+                        </input>
+                    </div>
+
+                    
                     <input 
-                        type="text" 
-                        placeholder='Username' 
-                        className="user-input"
-                        onChange={e => setUserName(e.target.value)}
-                        value={userName}
-                        required
-                        >
-                        
-                    </input>
-                </div>
+                        type="submit"                     
+                        className="submit-button"                 
+                        value="Register">
+                    </input>                
+                    
+                    <span id="footer">
+                        Already have an account?&nbsp;
+                        <Link to='/login'><p className="highlight">Sign in</p></Link>
+                    </span>
+                </form>
 
-                <div className="input-container">
-                    <AiOutlineMail id="lock"></AiOutlineMail>
-                    <input 
-                        type="text" 
-                        placeholder="Email" 
-                        className="user-input"
-                        onChange={e => setEmail(e.target.value)}
-                        value={email}
-                        required
-                        >
-                    </input>
-                </div>
-
-                <div className="input-container">
-                    <RiLockPasswordFill id="lock"></RiLockPasswordFill>
-                    <input 
-                        type="password" 
-                        placeholder="Password" 
-                        className="user-input"
-                        onChange={e => setPassword(e.target.value)}
-                        value={password}
-                        required
-                        >
-
-                    </input>
-                </div>
-
-                {isShelter && <div className="input-container">
-                    <RiHomeHeartFill id="lock"></RiHomeHeartFill>
-                    <input 
-                        type="text" 
-                        placeholder="Shelter Type" 
-                        className="user-input"
-                        onChange={e => setShelterType(e.target.value)}
-                        value={shelterType}
-                        required
-                        >
-
-                    </input>
-                </div>}
-
-                {isShelter && <div className="input-container">
-                    <SiGooglestreetview id="lock"></SiGooglestreetview>
-                    <input 
-                        type="text" 
-                        placeholder="Address" 
-                        className="user-input"
-                        onChange={e => setAddress(e.target.value)}
-                        value={address}
-                        required>
-
-                    </input>
-                </div>}
-
-                <div className="input-container">
-                    <AiFillPicture id="lock"></AiFillPicture>
-                    <input 
-                        type="text" 
-                        placeholder="Img Url" 
-                        className="user-input"
-                        onChange={e => setImgUrl(e.target.value)}
-                        value={imgUrl}
-                        required>
-
-                    </input>
-                </div>
-
-                
-                <input 
-                    type="submit"                     
-                    className="submit-button"                 
-                    value="Register">
-                </input>                
-                
-                <span id="footer">
-                    Already have an account?&nbsp;
-                    <Link to='/login'><p className="highlight">Sign in</p></Link>
-                </span>
-            </form>
-
+            </div>
         </div>
     )
 }

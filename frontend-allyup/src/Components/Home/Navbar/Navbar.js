@@ -22,17 +22,17 @@ export default function Navbar() {
             </div>
 
             <div className="navbar-nav">
-                <Link to="/" className="navbar-etc">
-                    <span className="navbar-etcline1">Your</span>
-                    <span className="navbar-etcline2">Profile</span>
+                <Link to={{ pathname: "https://devpost.com" }} target="_blank" className="navbar-etc">
+                    <span className="navbar-etcline1">DevPost</span>
+                    <span className="navbar-etcline2">Article</span>
                 </Link>                
-                <Link to="/" className="navbar-etc">
-                    <span className="navbar-etcline1">Donations</span>
-                    <span className="navbar-etcline2">& Records</span>
+                <Link to={{ pathname: "https://github.com/apcscap/allyup" }} target="_blank" className="navbar-etc">
+                    <span className="navbar-etcline1">GitHub</span>
+                    <span className="navbar-etcline2">Link</span>
                 </Link>
-                <Link to="/" className="navbar-etc">
-                    <span className="navbar-etcline1">Our</span>
-                    <span className="navbar-etcline2">Mission</span>
+                <Link to="/login" className="navbar-etc">
+                    <span className="navbar-etcline1">Logout</span>
+                    <span className="navbar-etcline2">& Adios!</span>
                 </Link>
                 <Link to="/home" className="navbar-homeIcon">
                     <AiFillHome id="navbar-homeIcon"/>
