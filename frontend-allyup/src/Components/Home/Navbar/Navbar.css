@@ -1,11 +1,12 @@
 .navbar {
     width: 100%;
     height: 60px;
-    background-color: #C3B1E1;
+    background-color: #BF40BF;
     display: flex;
     align-items: center;
     position: sticky;
     z-index: 99;
+    color: white;
 }
 
 .navbar-logo {
