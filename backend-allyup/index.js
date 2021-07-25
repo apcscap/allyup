@@ -226,4 +226,30 @@ app.use("/api/donate/post/", (req, res) => {
     })
 })
 
+app.use("/api/records", (req, res) => {
+    const user = firebase.auth().currentUser
+    if(!user) {
+        return res.status(501).send("User not logged in")
+    }
+    firUtils.getUserByUID(user.uid, (err, userSnapshot) => {
+        if(userSnapshot.isShelter) {
+            firUtils.getShelterDonations(user.uid, (err, postSnapshot) => {
+                if(err) {
+                    res.status(401).send(err.message)
+                }
+                const postArray = Object.keys(postSnapshot).map(function(key) { return postSnapshot[key] })
+                res.status(200).send(postArray)
+            })
+        } else if(!userSnapshot.isShelter) {
+            firUtils.getUserDonations(user.uid, (err, postSnapshot) => {
+                if(err) {
+                    res.status(401).send(err.message)
+                }
+                const postArray = Object.keys(postSnapshot).map(function(key) { return postSnapshot[key] })
+                res.status(200).send(postArray)
+            })
+        }
+    })
+})
+
 app.listen(4000, () => console.log("The server is running at PORT 4000"));

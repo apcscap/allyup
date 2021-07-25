@@ -20,6 +20,7 @@ export default function Hero({posts, isShelter, userData}) {
                    desc={post.description}
                    date={post.date}
                    isRequest={post.isRequest}
+                   postID={post.postID}
                    productLink={post.productLink}
                    uid={post.uid}
                 />

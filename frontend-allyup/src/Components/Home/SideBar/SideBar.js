@@ -7,6 +7,7 @@ import { FaDog } from 'react-icons/fa'
 import { CgGirl } from 'react-icons/cg'
 import axios from 'axios'
 import {MdRemoveShoppingCart} from 'react-icons/md'
+import { Link } from 'react-router-dom'
 import { useHistory } from "react-router-dom";
 
 export default function SideBar({posts, setPosts}) {
@@ -112,10 +113,12 @@ export default function SideBar({posts, setPosts}) {
                 <div className="sidebar-option" onClick={sendToHome}>
                     Browse
                 </div>
-                <div className="sidebar-option" onClick={sendToRecords}>
-                    Donations & Records
-                </div>
-                <div className="sidebar-option" onClick={sendToProfile}>
+                <Link to="/records">
+                    <div className="sidebar-option">
+                        Donations & Records
+                    </div>
+                </Link>
+                <div className="sidebar-option">
                     Your Profile
                 </div>
                 <div className="sidebar-option" onClick={sendToMission}>

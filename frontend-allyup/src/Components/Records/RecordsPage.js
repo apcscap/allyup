@@ -11,18 +11,9 @@ export default function RecordsPage() {
     const [posts, setPosts] = useState([])
     const [isShelter, setIsShelter] = useState(true);
 
-    useEffect(() => {        
-        axios.get('http://localhost:4000/api/user')
-          .then((response) => {  
-            const res = response.data                                       
-            setUserData(res)      
-            setIsShelter(res.isShelter)
-          },                    
-          (error) => {
-            console.log(error);
-        });
+    useEffect(() => {
         
-        axios.get('http://localhost:4000/api/posts')
+        axios.get('http://localhost:4000/api/records')
           .then((response) => {  
             const res = response.data                                       
             setPosts(res)
