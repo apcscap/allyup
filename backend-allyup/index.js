@@ -145,6 +145,10 @@ app.use("/api/post/create", (req, res) => {
     res.send(postObj);
 })
 
+/* Retrieve all posts
+    Params: None
+    Returns: [Post] (JSON) 
+*/
 app.use("/api/posts/", (req, res) => {
     firUtils.getAllPosts(function(error, postSnapshot) {
         if(error) {
@@ -154,13 +158,19 @@ app.use("/api/posts/", (req, res) => {
         res.send(postArray)
     })
 })
+
 /* Retrieve one post by the id
     Params: None
     Returns: [Post] (JSON) 
 */
 app.use("/api/post/:id", (req, res) => {
     const postID = req.params.id;
-    res.send(postID);
+    firUtils.getPostByID(postID, (err, postSnapshot) => {
+        if(err) {
+            res.status(501).send(err.message)
+        }
+        res.send(postSnapshot)
+    })
 })
 
 /* Retrieve all posts made by a user
@@ -190,6 +200,29 @@ app.use("/api/category/:cat", (req, res) => {
             res.status(401).send(err.message)
         }
         res.send(postsInCat)
+    })
+})
+
+/* User donates to a post
+    Params: URL param (String)
+    Returns: Status message
+*/
+app.use("/api/donate/post/", (req, res) => {
+    const user = firebase.auth().currentUser
+    const { postID } = req.body
+    console.log(postID)
+    if(!user) {
+        return res.status(501).send("User not logged in")
+    }
+    const donationObj = {
+        postID: postID,
+        complete: true,
+    }
+    firUtils.donateToPost(postID, user.uid, donationObj, (err, snapshot) => {
+        if(err) {
+            res.status(401).send(err.message)
+        }
+        res.status(200).send('Donated request completed')
     })
 })
 
