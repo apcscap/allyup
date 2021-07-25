@@ -25,6 +25,7 @@
 
 .arrw-icon:hover {
     color: #50C878;
+    cursor: pointer;
 }
 
 .positive {

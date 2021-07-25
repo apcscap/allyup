@@ -113,12 +113,10 @@ export default function SideBar({posts, setPosts}) {
                 <div className="sidebar-option" onClick={sendToHome}>
                     Browse
                 </div>
-                <Link to="/records">
-                    <div className="sidebar-option">
-                        Donations & Records
-                    </div>
-                </Link>
-                <div className="sidebar-option">
+                <div className="sidebar-option" onClick={sendToRecords}>
+                    Donations & Records
+                </div>
+                <div className="sidebar-option" onClick={sendToProfile}>
                     Your Profile
                 </div>
                 <div className="sidebar-option" onClick={sendToMission}>

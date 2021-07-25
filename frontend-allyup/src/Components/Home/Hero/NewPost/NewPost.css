@@ -93,4 +93,5 @@
 
 #display-submit:hover {
     background-color: #CBC3E3;
+    cursor: pointer;
 }
