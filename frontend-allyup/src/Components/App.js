@@ -4,6 +4,8 @@ import HomePage from './Home/HomePage'
 import LoginPage from './Login/LoginPage'
 import SignupPage from './Signup/SignupPage'
 import RecordsPage from './Records/RecordsPage'
+import ProfilePage from './Profile/ProfilePage'
+import MissionPage from './Mission/MissionPage'
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 
@@ -20,6 +22,8 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
             <Route path="/signup"><SignupPage isShelter={isShelter} setIsShelter={setIsShelter}/></Route>
             <Route path="/home"><HomePage /></Route>
             <Route path="/records"><RecordsPage /></Route>
+            <Route path="/profile"><ProfilePage /></Route>
+            <Route path="/mission"><MissionPage /></Route>
           </Switch>
         </div>
       </BrowserRouter>

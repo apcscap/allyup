@@ -90,6 +90,14 @@ export default function SideBar({posts, setPosts}) {
         history.push('/records')
     }
 
+    const sendToProfile = () => {
+        history.push('/profile')
+    }
+
+    const sendToMission = () => {
+        history.push('/mission')
+    }
+
 
 
 
@@ -107,10 +115,10 @@ export default function SideBar({posts, setPosts}) {
                 <div className="sidebar-option" onClick={sendToRecords}>
                     Donations & Records
                 </div>
-                <div className="sidebar-option">
+                <div className="sidebar-option" onClick={sendToProfile}>
                     Your Profile
                 </div>
-                <div className="sidebar-option">
+                <div className="sidebar-option" onClick={sendToMission}>
                     Our Mission
                 </div>
             </div>
