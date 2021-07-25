@@ -7,8 +7,10 @@ import { FaDog } from 'react-icons/fa'
 import { CgGirl } from 'react-icons/cg'
 import axios from 'axios'
 import {MdRemoveShoppingCart} from 'react-icons/md'
+import { useHistory } from "react-router-dom";
 
 export default function SideBar({posts, setPosts}) {
+    const history = useHistory()
 
     const covid = (e) => {
         axios.get('http://localhost:4000/api/category/covid')
@@ -80,6 +82,15 @@ export default function SideBar({posts, setPosts}) {
         window.location.reload(false)
     }
 
+    const sendToHome = () => {
+        history.push('/home')
+    }
+
+    const sendToRecords = () => {
+        history.push('/records')
+    }
+
+
 
 
     return (
@@ -90,10 +101,10 @@ export default function SideBar({posts, setPosts}) {
             </div>
 
             <div className="sidebar-options">
-                <div className="sidebar-option" onClick={refresh}>
+                <div className="sidebar-option" onClick={sendToHome}>
                     Browse
                 </div>
-                <div className="sidebar-option">
+                <div className="sidebar-option" onClick={sendToRecords}>
                     Donations & Records
                 </div>
                 <div className="sidebar-option">
