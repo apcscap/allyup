@@ -1,0 +1,16 @@
+.recordspage-container {
+    width: 100vw;
+    min-height: 100vh;
+    margin: 0px;
+    padding: 0px;
+    background-color: antiquewhite; 
+}
+
+.recordspage-content {
+    width: 100%;
+    height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+}
