@@ -51,7 +51,7 @@ const NewPost = ({userData}) => {
 
                 <div>
                     <span id="display-name">
-                        Make a post "{name}"!   
+                        Make a post under "{name}"!   
                     </span>
 
                     <div id="details-container">
