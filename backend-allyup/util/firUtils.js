@@ -52,6 +52,19 @@ function getAllPosts(callback) {
     })
 }
 
+function getPostByID(postID, callback) {
+    firebase.database().ref("posts/" + postID).get().then((snapshot) => {
+        if (snapshot.exists()) {
+            callback(null, snapshot.val())
+        } else {
+            callback(null, null)
+        }
+    }).catch((error) => {
+        console.error(error);
+        callback(error, null)
+    })
+}
+
 // function getAllPostsByCat(category, callback) {
 //     const ref = firebase.database().ref("posts")
 //     ref.orderByChild("category").equalTo(category).on('child_changed', (postSnapShot) => {
@@ -83,6 +96,23 @@ function getAllPostsByCat(category, callback) {
     })
 }
 
+function donateToPost(postID, uid, donationObj, callback) {
+    firebase.database().ref('userDonations/' + uid).set(donationObj)
+    firebase.database().ref("posts/" + postID).get().then((postSnapshot) => {
+        if (postSnapshot.exists()) {
+            const post = postSnapshot.val()
+            firebase.database().ref('userCompletedDonations/' + post.uid).set(donationObj)
+            callback(null, donationObj)
+        } else {
+            console.log("We couldn't get data from the DB")
+            callback(null, null)
+        }
+    }).catch((error) => {
+        console.error(error);
+        callback(error, null)
+    })
+}
+
 module.exports = {
     storeUserData,
     getUserByUID,
@@ -90,4 +120,6 @@ module.exports = {
     getPostByUser,
     getAllPosts,
     getAllPostsByCat,
+    getPostByID,
+    donateToPost,
 }
