@@ -11,7 +11,7 @@ More information can be found in our `README.md` in the docs folder and the foll
 
 # Devpost Description
 ## 🤩 Inspiration
-When one donates to an organization or charity, they don't see where their donation goes towards. With our app, AllyUp, we're seeking to bring the intimate feeling back to donating. Users can choose to donate what they feel like and provide for the specific needs of their favorite organizations. Donating will be more positively reinforced due to the immediate impact people will make when they donate. 
+When one donates to an organization or charity they don't see where their donation goes towards. With our app, AllyUp, we're seeking to bring transparency and the intimate feeling of generosity back to donating. Users have the ability to choose what to donate as well as provide for the specific needs of their favorite organizations. The immediate impact people make when they click the donation button will put users into a positive feedback loop. Never stop giving!
 
 ## ⚙️ What it does
 WIP
