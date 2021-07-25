@@ -12,7 +12,7 @@ const ShelterPortal = ({isShelter, setIsShelter}) => {
                 <Link to="/login"><button className="arrw-icon" onClick={() => setIsShelter(true)}><FaArrowAltCircleRight/></button></Link>
             </div>
             <div className="positive">
-                Continue as Continue as a Donor Create scholarships, fellowships, and grants for the people and causes you care most about.
+                Continue as Shelter. Create posts on scholarships, fellowships, and grants for the people and causes you care most about.
             </div>
             <div className="center">
                 <img src={shelter} alt="Image of Shelter" id="shelter-img"></img>
