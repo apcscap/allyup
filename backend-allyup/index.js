@@ -145,6 +145,10 @@ app.use("/api/post/create", (req, res) => {
     res.send(postObj);
 })
 
+/* Retrieve all posts
+    Params: None
+    Returns: [Post] (JSON) 
+*/
 app.use("/api/posts/", (req, res) => {
     firUtils.getAllPosts(function(error, postSnapshot) {
         if(error) {
@@ -154,6 +158,7 @@ app.use("/api/posts/", (req, res) => {
         res.send(postArray)
     })
 })
+
 /* Retrieve one post by the id
     Params: None
     Returns: [Post] (JSON) 
