@@ -97,12 +97,49 @@ function getAllPostsByCat(category, callback) {
 }
 
 function donateToPost(postID, uid, donationObj, callback) {
-    firebase.database().ref('userDonations/' + uid).set(donationObj)
+    // userDonations stores all posts the user has donated to
+    firebase.database().ref('userDonations/' + uid + '/' +  postID).set(donationObj)
+
+    // userCompletedDonations stores all the users that have donated to
     firebase.database().ref("posts/" + postID).get().then((postSnapshot) => {
         if (postSnapshot.exists()) {
             const post = postSnapshot.val()
-            firebase.database().ref('userCompletedDonations/' + post.uid).set(donationObj)
+            const userObj = {
+                completed: true,
+                uid: uid
+            }
+            firebase.database().ref('userCompletedDonations/' + post.uid + '/' + postID).set(userObj)
             callback(null, donationObj)
+        } else {
+            console.log("We couldn't get data from the DB")
+            callback(null, null)
+        }
+    }).catch((error) => {
+        console.error(error);
+        callback(error, null)
+    })
+}
+
+function getUserDonations(uid, callback) {
+    firebase.database().ref('userDonations/' + uid).get().then((postSnapshot) => {
+        if (postSnapshot.exists()) {
+            const post = postSnapshot.val()
+            callback(null, donationObj)
+        } else {
+            console.log("We couldn't get data from the DB")
+            callback(null, null)
+        }
+    }).catch((error) => {
+        console.error(error);
+        callback(error, null)
+    })
+}
+
+function getShelterDonations(uid, callback) {
+    firebase.database().ref('userCompletedDonations/' + uid).get().then((postSnapshot) => {
+        if (postSnapshot.exists()) {
+            const postData = postSnapshot.val()
+            callback(null, postData)
         } else {
             console.log("We couldn't get data from the DB")
             callback(null, null)
@@ -122,4 +159,6 @@ module.exports = {
     getAllPostsByCat,
     getPostByID,
     donateToPost,
+    getUserDonations,
+    getShelterDonations,
 }
