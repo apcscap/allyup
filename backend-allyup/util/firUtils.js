@@ -96,15 +96,20 @@ function getAllPostsByCat(category, callback) {
     })
 }
 
-function donateToPost(postID, uid, postObj) {
-    firebase.database().ref('userDonations/' + uid).set(postObj)
-    getPostByID(postID, (err, postSnapshot) => {
+function donateToPost(postID, uid, donationObj, callback) {
+    firebase.database().ref('userDonations/' + uid).set(donationObj)
+    firebase.database().ref("posts/" + postID).get().then((postSnapshot) => {
         if (postSnapshot.exists()) {
             const post = postSnapshot.val()
-            firebase.database().ref('userCompletedDonations/' + post.uid).set(postObj)
+            firebase.database().ref('userCompletedDonations/' + post.uid).set(donationObj)
+            callback(null, donationObj)
         } else {
             console.log("We couldn't get data from the DB")
+            callback(null, null)
         }
+    }).catch((error) => {
+        console.error(error);
+        callback(error, null)
     })
 }
 
@@ -116,4 +121,5 @@ module.exports = {
     getAllPosts,
     getAllPostsByCat,
     getPostByID,
+    donateToPost,
 }
