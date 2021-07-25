@@ -35,10 +35,10 @@ export default function RecordsPage() {
       }, []);
       
     return (
-        <div className="home-container">
+        <div className="recordspage-container">
             <Navbar />
 
-            <div className="home-content">
+            <div className="recordspage-content">
                 <SideBar 
                     posts={posts}
                     setPosts={setPosts}

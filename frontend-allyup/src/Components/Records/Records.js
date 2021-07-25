@@ -4,8 +4,10 @@ import './Records.css'
 export default function Records({posts, isShelter, userData}) {
 
     return (
-        <div className="hero-container">
-            This is records
+        <div className="records-container">
+            <div className="records-actionbar">
+                This is records
+            </div>
         </div>
     )
 }
