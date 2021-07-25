@@ -35,7 +35,7 @@ export default function Post(props) {
                     {userData.address} | {userData.email} | {userData.shelterType}
                 </div>
 
-                <a href={props.productLink} className="post-info">
+                <a href={props.productLink} target="_blank" className="post-info">
                     Product Link Here!
                 </a>
 
