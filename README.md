@@ -46,5 +46,5 @@ We're extremely proud of our attempt to bring back intimate feeling people get w
 ## 💭 What we learned
 We learned to work with Firebase and its intricacies. We familiarized ourselves in reading documentation to attain the knowledge we needed to develop our app and learn better programming practices. A lot of our members also learned to connect our frontend with our backend through the use of libraries, many of which we have never used before. **MOST IMPORTANTLY** we learned how to work long, tiring hours and still have the time and energy to crunch our final features and film a video. 
 
-## 🔮 What's next for AllyUp
+## 🔮 What's next for AllyUp!
 We plan on integrating an in-app payment feature that will directly purchase a product from a trust third-party retail such as Amazon, Chewy, Ebay, Walmat and the other online retail websites. That way users can decide to donate money and still feel like their donation is having that immediate impact on an organization they love. Of course bug fixes are always the next priority. ;)
